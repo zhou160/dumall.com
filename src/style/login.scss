@@ -1,0 +1,169 @@
+@import "base";
+@import "mixin";
+
+body{
+    color: #363636;
+    header{
+        padding:0px 63px;
+        // background-color: red;
+        height: 110px;
+        line-height: 110px;
+        border: 1px solid #e1e1e1;
+        dl{
+            display: flex;
+            justify-content: space-between;
+            dd{
+                img{
+                    widows: 202px;
+                    height: 26px;
+                    margin-right: 10px;
+                }
+                span{
+                    font-size: 20px;
+                    color: #363636;
+                    vertical-align: middle;
+                }
+            }
+            dt{
+                span{
+                    margin-right: 5px;
+                }
+                a{
+                    display: inline-block;
+                    width: 60px;
+                    height: 28px;
+                    line-height: 28px;
+                    text-align: center;
+                    border: 1px solid #DDD;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+    
+    section{
+        padding: 0px 63px;
+        display: flex;
+        justify-content: space-between;
+        .loginBack{
+            width: 510px;
+            height: 352px;
+            background: url('../img/loginBcak.png');
+            background-size: 100%;
+            margin-top: 50px;
+        }
+        .login{
+            width: 352px;
+            // height:405px;
+            margin-top: 30px;
+            border: 1px solid #dedede;
+            .loginTop{
+                position: relative;
+                padding: 0px 28px;
+                p{
+                    width: 178px;
+                    margin: 25px 0px 15px 0px;
+                    height: 32px;
+                    font-size: 14px;
+                    line-height: 45px;
+                    padding-left: 115px;
+                    background-color: red;
+                    background: url('../img/loginlogo.gif')no-repeat;
+                }
+                .inp{
+                    padding: 10px 8px;
+                    width: 284px;
+                    height: 20px;
+                    font-size: 12px;
+                    color:#ccc;
+                    margin-top:15px;
+                }
+                .inp1{
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                }
+                i{
+                    position: absolute;
+                    top: 180px;
+                    left: 28px;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                .active{
+                    display: none;
+                }
+                .btn{
+                    width: 302px;
+                    height: 40px;
+                    background: #F04146;
+                    line-height: 40px;
+                    text-align: center;
+                    color: white;
+                    font-weight:bold;
+                    margin-bottom: 12px;
+                }
+                span{
+                    display: block;
+                    width: 302px;
+                    display: flex;
+                    justify-content: space-between;
+                    a{
+                        color: #2e82ff;
+                        font-size:12px;
+                    }
+                }
+            }
+            .loginBot{
+                margin-top: 40px;
+                background: #f0f6ff;
+                width: 296px;
+                height: 60px;
+                line-height: 60px;
+                padding: 0px 28px;
+                display: flex;
+                justify-content: space-between;
+                dd{
+                    ul{
+                        display: flex;
+                        justify-content: space-between;
+                        width: 170px;
+                        color: #2e82ff;
+                        font-size: 14px;
+                        li{
+                            cursor: pointer;
+                            i{
+                                font-size: 18px !important;
+                            }
+                        }
+                    }
+                }
+                dt{
+                    color: #2e82ff;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    footer{
+        background: #F9F9FA;
+        position: relative;
+        div{
+            @include center;
+            width: 395px;
+            display: flex;
+            justify-content: space-around;
+            top: 33px;
+            font-size: 12px;
+        }
+        p{
+            @include center;
+            width: 395px;
+            font-size: 15px;
+            line-height: 17px;
+            top: 60px;
+            color: #A7A7A7;
+        }
+    }
+    
+}
+

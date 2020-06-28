@@ -1,0 +1,53 @@
+//专门存放混合的公共样式
+//共享的一些混合
+
+//清除浮动
+@mixin clearBoth{
+    content: "";
+    height: 0;
+	width: 0;
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden; 
+}
+
+@mixin  main{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 1200px;
+}
+
+@mixin reMain {
+	position: relative;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 1200px;
+}
+
+@mixin btn {
+	width: 35px;
+	height: 35px;
+	border-radius: 35px;
+	border: 2px solid #a5a5a5;
+	text-align: center;
+	line-height: 35px;
+	font-size: 16px;
+	color: #a5a5a5;
+	font-weight: bold;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	cursor: pointer;
+}
+
+@mixin center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}

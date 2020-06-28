@@ -1,0 +1,273 @@
+@import "base";
+@import "mixin";
+body,html{
+    height: 100%;
+}
+
+body{
+    background: url('../img/register-bg.jpg');
+    background-size:100%;
+    position: relative;
+    height: 100%;
+    .logo{
+        width: 125px;
+        height: 40px;
+        position: fixed;
+        top: 60px;
+        left: 70px;
+    }
+
+    // 注册框样式
+    .register{
+        width: 480px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 554px;
+        right: 139px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 12px;
+        // height: 500px;
+        li{
+            span{
+                display: inline-block;
+                width: 80px;
+                height: 40px;
+                margin-right: 15px;
+                text-align: right;
+                color: #333;
+                font-weight: bold;
+                line-height: 40px;
+            }
+            input{
+                width: 321px;
+                height: 16px;
+                padding: 11px 10px;
+                margin-right: 10px;
+                font-size: 14px;
+                border-radius: 4px;
+                border: 1px solid #E0E0E0;
+            }
+            &:nth-child(1){
+                margin: 30px 0px 0px 39px;
+                h1{
+                    font-size: 36px;
+                    padding: 4px;
+                }
+                p{
+                    font-size: 14px;
+                    color: #9B9B9B;
+                    a{
+                        color:#2e58ff;
+                        font-weight: bold;
+                    }
+                }
+                margin-bottom: 40px;
+            }
+            &:nth-child(2),&:nth-child(3),&:nth-child(4){
+                margin-bottom: 32px;
+            }
+            &:nth-child(5){
+                input:nth-of-type(1){
+                    width: 184px;
+                    margin-right: 9px;
+                }
+                input:nth-of-type(2){
+                    width: 124px;
+                    height: 38px;
+                    padding: 0;
+                    background: white;
+                    &:hover{
+                        color: #2e58ff;
+                        border-color: #2e58ff;
+                    }
+                }
+               
+            }
+            &:nth-child(6){
+                width: 399px;
+                height: 50px;
+                margin-bottom: 15px;
+                p{
+                    background: #bdcefc;
+                    border-radius: 25px;
+                    color: white;
+                    cursor: pointer;
+                    line-height: 50px;
+                    text-align: center;
+                    margin-left: 41px;
+                    margin-top: 40px;
+                    height: 50px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    width: 400px;
+                }
+            }
+            &:nth-child(7){
+                margin: 0px 0px 32px 41px;
+                input{
+                    display: inline-block;
+                    width: 13px;
+                    height: 13px;
+                }
+                a{
+                    color: #2e58ff;
+                }
+            }
+        }
+    }
+
+
+    // 标语处样式
+    .slogin{
+        position: fixed;
+        top: 314px;
+        left: 195px;
+        color: white;
+        h1{
+            font-size: 54px;
+            font-weight: bold;
+        }
+        h2{
+            font-size: 32px;
+        }
+    }
+
+
+    footer{
+        position: fixed;
+        bottom: 57px;
+        color: white;
+        left: 70px;
+        width: 210px;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            li{
+                a{
+                    color: white;
+                }
+                i{
+                    color: white !important;
+                }
+                &:nth-child(1){
+                    opacity: 0.8;
+                }
+                &:nth-child(2){
+                    opacity: 0.78;
+                }
+                &:nth-child(3){
+                    opacity: 0.5;
+                }
+                &:nth-child(4){
+                    opacity: 0.54;
+                }
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+
+    .login{
+        // position: relative;
+        .smectite{
+            width: 100%;
+            height: 100%;
+            // background: rgba(0,0,0);
+            background: rgba(0,0,0,.3);
+            // opacity: .3;
+            z-index: 20;
+            position: absolute;
+            // display: none;
+            .loginBox{
+                width: 393px;
+                height: 448px;
+                background: white;
+                opacity: 1;
+                position: absolute;
+                top: 100px;
+                left: 100px;
+                .title{
+                    background: url('../img/register-logo.png')no-repeat 14px 10px;
+                    background-size: 7%;
+                    font-size: 18px;
+                    padding: 15px 0px 13px 0px;
+                    border: 1px solid #ddd;
+                    width: 391px;
+                    height: 18px;
+                    text-indent: 50px;
+                    position: relative;
+                    i{
+                        position: absolute;
+                        right: 20px;
+                        font-size: 16px;
+                    }
+                }
+                .content{
+                    margin-top: 24px;
+                    padding: 0px 20px;
+                    padding-bottom: 50px;
+                    border-bottom: 1px solid #eee;
+                    li{
+                        &:nth-child(1){
+                            height: 19px;
+                            margin-bottom: 10px;
+                            text-align: right;
+                            cursor: pointer;
+                            i{
+                                color: rgb(27,102,199);
+                            }
+                            &:hover span{
+                                color: rgb(27,102,199);
+                                text-decoration:underline;
+                            }
+                        }
+                        &:nth-child(2),&:nth-child(3){
+                           padding-left: 24px;
+                            border: 1px solid #ddd;
+                            margin-bottom: 15px;
+                            font-size: 14px;
+                            i{
+                                // font-size: 14px;
+                                color: #ccc !important;
+                            }
+                            input{
+                                border: none;
+                                padding: 12px 10px 12px 14px;
+                                outline: none;
+                            }
+                        }
+                        &:nth-child(4){
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 15px;
+                            a{
+                                color: rgb(27,102,199);
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        &:nth-child(5){
+                            background: #4490f7;
+                            color: white;
+                            font-weight: bold;
+                            font-size: 16px;
+                            text-align: center;
+                            line-height: 48px;
+                            margin-bottom: 15px;
+                        }
+                        &:nth-child(6){
+                            text-align: right;
+                            color: #2e7fdb;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
