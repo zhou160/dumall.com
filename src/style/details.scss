@@ -1,0 +1,63 @@
+@import "base";
+@import "mixin";
+
+.title{
+    background: rgba(0, 0, 0, 0.02);
+    // background: red;
+    .titleContent{
+        @include main;
+        line-height: 40px;
+    }
+}
+.details{
+    .detaContent{
+        @include main;
+        padding-top:40px; 
+        display: flex;
+        justify-content: space-between;
+        .left{
+            .bigImg{
+                width: 438px;
+                height: 438px;
+                border: 1px solid black;
+                margin-bottom: 16px;
+            }
+        }
+        .right{
+            width: 723px;
+            >li{
+                span{
+                    display: inline-block;
+                }
+                &:nth-child(1){
+                    display: flex;
+                    justify-content: space-between;
+                    span{
+                        line-height: 26px;
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+                    span:nth-child(2){
+                        color: #F04146;
+
+                    }
+                }
+                &:nth-child(2){
+                    line-height: 26px;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                }
+                &:nth-child(3){
+                    line-height: 19px;
+                    color: #F04146;
+                    text-decoration: underline;
+                    margin-bottom: 16px;
+                }
+                &:nth-child(4){
+                    
+                }
+            }
+        }
+    }
+}
