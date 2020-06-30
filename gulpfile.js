@@ -25,8 +25,16 @@ gulp.task('copycss',function() {
     .pipe(gulp.dest('./dist/style'))
     .pipe(connect.reload());
 });
+//复制并压缩lib中的js文件
 
-
+gulp.task('copylibjs',function() {
+    return gulp.src('./src/js/lib/*.js')
+    .pipe(gulp.dest('./dist/js/lib'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))//统一对于压缩文件添加min
+    .pipe(gulp.dest('./dist/js/lib'))
+    .pipe(connect.reload());
+});
 
 //复制并压缩js文件
 gulp.task('copyjs',function() {
@@ -52,7 +60,13 @@ gulp.task('copyimg',function() {
     .pipe(connect.reload());
 });
 
+//复制后端接口
 
+gulp.task('copyinterface',function() {
+    return gulp.src('./interface/*.php')
+    .pipe(gulp.dest('./dist/interface'))
+    .pipe(connect.reload());
+});
 //事件监听
 gulp.task('watch', function() {
     // 监听所有的less文件
@@ -60,8 +74,10 @@ gulp.task('watch', function() {
     gulp.watch('./src/html/*.html', gulp.series('copyhtml'));
     gulp.watch('./src/style/*.scss', gulp.series('copycss'));
     gulp.watch('./src/js/*.js', gulp.series('copyjs'));
+    gulp.watch('./src/js/lib/*.js', gulp.series('copylibjs'));
     gulp.watch('./src/js/*.json', gulp.series('copyjson'));
     gulp.watch('./src/img/*', gulp.series('copyimg'));
+    gulp.watch('./interface/*.php',gulp.series('copyinterface'));
 });
 
 

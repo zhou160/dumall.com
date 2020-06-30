@@ -1,0 +1,175 @@
+@import "base";
+@import "mixin";
+
+header{
+    // padding: 20px 0px;
+    >dl{
+        display: flex;
+        justify-content: space-between;
+        background: #F6F9FB;
+        padding: 0px 74.5px;
+        dd{
+            display: flex;
+            justify-content: space-between;
+            width: 517px;
+            height: 40px;
+            line-height: 40px;
+        }
+        dt{
+            display: flex;
+            justify-content: space-between;
+            width: 149px;
+            height: 56px;
+            line-height: 56px;
+        }
+    }
+    .list{
+        // background: red;
+        height: 64px;
+        margin: 0px 74.5px;
+        >dl{
+            display: flex;
+            justify-content: space-between;
+            >dt{
+                width: 556px;
+                display: flex;
+                justify-content: space-between;
+                >li{
+                    height: 64px;
+                    line-height: 64px;
+                    font-size: 18px;
+                    .indexlogo{
+                        width: 185px;
+                    }
+                }
+            }
+            >dd{
+                width: 300px;
+                height: 64px;
+                line-height: 64px;
+                >input{
+                    width: 216px;
+                    padding: 10px 16px;
+                    border: none;
+                    border: 1px solid #ccc;
+                    border-radius: 5px 0px 0px 5px;
+                }
+                >span{
+                    display: inline-block;
+                    height: 35px;
+                    width: 44px;
+                    border: 1px solid #ccc;
+                    vertical-align: middle;
+                    line-height: 34px;
+                    margin-left: -3px;
+                    margin-top: -2px;
+                    border-radius: 0px 5px 5px 0px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+// 轮播图区域
+.banner{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    >ul{
+        position: absolute;
+        left: 50%;
+        margin-left: -960px;
+        >li{
+            position: absolute;
+            height: 600px;
+            >img{
+                height: 100%;
+            }
+        }
+    }
+    >ol{
+        position: absolute;
+        width: 180px;
+        display: flex;
+        justify-content: space-around;
+        bottom: 100px;
+        left: 150px;
+        li{
+            width: 24px;
+            height: 2px;
+            background: black;
+        }
+        .active{
+            background: white;
+        }
+    }
+}
+
+.newProduct{
+    position: relative;
+    width: 100%;
+    height: 3600px;
+    overflow: hidden;
+    >ul{
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        margin-left: -960px;
+        >li{
+            height: 600px;
+            >img{
+                // height: 100%;
+                height: 600px;
+                z-index: -1;
+            }
+            &:nth-child(1){
+                h1{
+                    font-size:60px;
+                    font-weight: bold;
+                    line-height: 70px;
+                }
+                h2{
+                    font-size: 30px;
+                    height: 66px;
+                    line-height: 33px;
+                }
+            }
+        }
+    }
+}
+
+//右侧固定部位
+.rightFixed{
+    position: fixed;
+    top: 125px;
+    right: 0;
+    width: 56px;
+    height: 300px;
+    >ul{
+        >li{
+            width: 54px;
+            height: 58px;
+            border: 1px solid #efefef;
+            background: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            line-height: 58px;
+            >i{
+                font-size: 24px !important;
+                color: #363636 !important;
+            }
+            // span{
+            //     display: none;
+            // }
+            &:nth-child(6){
+                display: none;
+            }
+            &:hover{
+                background: #EF4146;
+            }
+            
+        }
+
+    }
+}

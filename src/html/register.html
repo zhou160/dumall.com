@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册百度账号</title>
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1904699_ja7z6tsevhc.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1904699_hrwokqsmhd4.css">
     <link rel="stylesheet" href="../style/register.min.css">
+    <script src="http://at.alicdn.com/t/font_1904699_p0kxkafyhx.js"></script>
 </head>
 <body>
     <img src="../img/baidulogo.png" class="logo">
@@ -21,19 +22,31 @@
                 <h1>欢迎注册</h1>
                 <p>
                     <i>已有账号？</i>
-                    <a href="./login.html">登录</a>
+                    <a href="#" id="login">登录</a>
                 </p>
             </li>
             <li>
+                 <!-- 需要提示的时候去掉hid样式 -->
+                 <div class="tip">
+                        设置后不可更改，中英文均可，最长14个英文或7个汉字
+                        <h6></h6>
+                </div>
                 <span>用户名</span>
-                <input type="text" placeholder="请设置用户名">
+                <input type="text" placeholder="请设置用户名" autofocus>
             </li>
             <li>
                 <span>手机号</span>
                 <input type="text" placeholder="用于登录和找回密码">
             </li>
             <li>
+                <div class="tip hid">
+                    <b>长度为8~14字符</b>
+                    <b>字母/数字以及标点符号至少包含2种</b>
+                    <b>不允许有空格、中文</b>
+                    <h6></h6>
+                </div>
                 <span>密&nbsp;&nbsp;&nbsp;&nbsp;码</span>
+
                 <input type="text" placeholder="请设置登录密码">
             </li>
             <li>
@@ -69,28 +82,70 @@
                     登录百度账号
                     <i class="iconfont icon-shanchu"></i>
                 </div>
-                <ul class="content">
-                    <li><i class="iconfont icon-shouji"></i> <span>短信快捷登录</span></li>
-                    <li>
-                        <i class="iconfont icon-user"></i>
-                        <input type="text" placeholder="手机/邮箱/用户名">
-                    </li>
-                    <li>
-                        <i class="iconfont icon-mima"></i>
-                        <input type="password" placeholder="密码">
-                    </li>
-                    <li>
-                        <span>
-                                <input type="checkbox"> 下次自动登录
+                <div class="loginPhone">
+                    <ul class="content">
+                        <li><i class="iconfont icon-shouji"></i> <span>短信快捷登录</span></li>
+                        <li>
+                            <i class="iconfont icon-user"></i>
+                            <input type="text" placeholder="手机/邮箱/用户名">
+                        </li>
+                        <li>
+                            <i class="iconfont icon-mima"></i>
+                            <input type="password" placeholder="密码">
+                        </li>
+                        <li>
+                            <span>
+                                    <input type="checkbox"> 下次自动登录
+                            </span>
+                            <a href="#">登录遇到问题</a>
+                        </li>
+                        <li>登录</li>
+                        <li>立即注册</li>
+                    </ul>
+                    <dl class="loginFot">
+                        <dt>可以使用以下方式登录</dt>
+                        <dd>
+                            <a href="">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-QQ"></use>
+                                </svg>
+                            </a>
+                            <a href="">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-weibo1"></use>
+                                </svg>
+                            </a>
+                            <a href="">
+                                <svg class="icon ic" aria-hidden="true">
+                                    <use xlink:href="#icon-weixinfang" class="ic"></use>
+                                </svg>
+                            </a>
+                        </dd>
+                        <span class="spa1">
                         </span>
-                        <a href="#">登录遇到问题</a>
+                    </dl>
+                </div>
+                <ul class="loginQR loginMethod">
+                    <li>
+                        请使用<span>百度App</span>扫码登录
                     </li>
-                    <li>登录</li>
-                    <li>立即注册</li>
+                    <li>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <img src="https://passport.baidu.com/v2/api/qrcode?sign=9bb724b12da76128676ed087b4eb3fcc&lp=pc&qrloginfrom=pc" alt="">
+                    </li>
+                    <li>
+                        百度技术加密，保障您的隐私安全
+                    </li>
+                    <li>
+                        <span class="spa2"></span>
+                    </li>
                 </ul>
-                
             </div>
         </div>
     </div>
+    <script src="../js/require.js" data-main="../js/main.register"></script>
 </body>
 </html>

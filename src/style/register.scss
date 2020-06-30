@@ -30,6 +30,26 @@ body{
         border-radius: 12px;
         // height: 500px;
         li{
+            .tip{
+                background: rgba(0,0,0,0.5);
+                padding: 10px 0px 10px 10px;
+                width: 317px;
+                font-size: 12px;
+                border-radius: 5px;
+                color: white;
+                position: absolute;
+                b{
+                    font-size: 12px;
+                    display: block;
+                }
+                h6{
+                    width: 0px;
+                    height: 0px;
+                    border:5px solid transparent;
+                    border-top-color: rgba(0,0,0,0.5);
+                    position: absolute;
+                }
+            }
             span{
                 display: inline-block;
                 width: 80px;
@@ -64,6 +84,29 @@ body{
                     }
                 }
                 margin-bottom: 40px;
+            }
+            &:nth-child(2){
+                >div{
+                    top: 100px;
+                    left: 100px;
+                    h6{
+                        top: 36px;
+                        left: 26px;
+                    }
+                }
+            }
+            .hid{
+                display: none;
+            }
+            &:nth-child(4){
+                >div{
+                    top: 212px;
+                    left: 100px;
+                    h6{
+                        top: 68px;
+                        right: 26px;
+                    }
+                }
             }
             &:nth-child(2),&:nth-child(3),&:nth-child(4){
                 margin-bottom: 32px;
@@ -174,6 +217,7 @@ body{
     .login{
         // position: relative;
         .smectite{
+            display: none;
             width: 100%;
             height: 100%;
             // background: rgba(0,0,0);
@@ -181,15 +225,15 @@ body{
             // opacity: .3;
             z-index: 20;
             position: absolute;
-            // display: none;
             .loginBox{
                 width: 393px;
-                height: 448px;
+                height: 461px;
                 background: white;
                 opacity: 1;
                 position: absolute;
-                top: 100px;
-                left: 100px;
+                top:60px;
+                left:500px;
+                cursor: move;
                 .title{
                     background: url('../img/register-logo.png')no-repeat 14px 10px;
                     background-size: 7%;
@@ -204,70 +248,192 @@ body{
                         position: absolute;
                         right: 20px;
                         font-size: 16px;
+                        cursor: pointer;
                     }
                 }
-                .content{
-                    margin-top: 24px;
+                .loginPhone{
+                    display: block;
+                    .content{
+                        margin-top: 24px;
+                        padding: 0px 20px;
+                        padding-bottom: 50px;
+                        border-bottom: 1px solid #eee;
+                        li{
+                            &:nth-child(1){
+                                height: 19px;
+                                margin-bottom: 10px;
+                                text-align: right;
+                                cursor: pointer;
+                                i{
+                                    color: rgb(27,102,199);
+                                }
+                                &:hover span{
+                                    color: rgb(27,102,199);
+                                    text-decoration:underline;
+                                }
+                            }
+                            &:nth-child(2),&:nth-child(3){
+                               padding-left: 24px;
+                                border: 1px solid #ddd;
+                                margin-bottom: 15px;
+                                font-size: 14px;
+                                i{
+                                    // font-size: 14px;
+                                    color: #ccc !important;
+                                }
+                                input{
+                                    border: none;
+                                    padding: 12px 10px 12px 14px;
+                                    outline: none;
+                                }
+                            }
+                            &:nth-child(4){
+                                display: flex;
+                                justify-content: space-between;
+                                margin-bottom: 15px;
+                                a{
+                                    color: rgb(27,102,199);
+                                    &:hover{
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                            &:nth-child(5){
+                                background: #de0909;
+                                color: white;
+                                font-weight: bold;
+                                font-size: 16px;
+                                text-align: center;
+                                line-height: 48px;
+                                margin-bottom: 15px;
+                            }
+                            &:nth-child(6){
+                                text-align: right;
+                                color: #2e7fdb;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .loginFot{
+                        // display: none;
+                        padding: 15px 0px 15px 20px;
+                        position: relative;
+                        >dt{
+                            line-height: 18px;
+                            font-size: 12px;
+                        }
+                        >dd{
+                            margin-top: 15px;
+                            .icon {
+                                width: 1em; height: 1em;
+                                vertical-align: -0.15em;
+                                fill: currentColor;
+                                overflow: hidden;
+                                font-size: 24px;
+                             }
+                            a{
+                                display: inline-block;
+                                width: 40px;
+                            }
+                        }
+                        .spa1{
+                            background: url(https://passport.baidu.com/passApi/img/pass_login_icons.png);
+                            display: block;
+                            height: 44px;
+                            width: 44px;
+                            background-position: -44px -86px;
+                            position: absolute;
+                            // top: 10px;
+                            bottom: 0px;
+                            right: 0px;
+                        }
+                    }
+                }
+                .loginQR{
+                    display: block;
                     padding: 0px 20px;
-                    padding-bottom: 50px;
-                    border-bottom: 1px solid #eee;
+                    text-align: center;
+                    position: relative;
+                    height: 413px;
                     li{
                         &:nth-child(1){
-                            height: 19px;
-                            margin-bottom: 10px;
-                            text-align: right;
-                            cursor: pointer;
-                            i{
-                                color: rgb(27,102,199);
+                            padding-top: 40px;
+                            font-size: 16px;
+                            line-height: 36px;
+                            margin-bottom: 35px;
+                            font-weight: bold;
+                            span{
+                                font-size: 17px;
+                                color: #3488ff;
                             }
-                            &:hover span{
-                                color: rgb(27,102,199);
-                                text-decoration:underline;
-                            }
+
                         }
-                        &:nth-child(2),&:nth-child(3){
-                           padding-left: 24px;
-                            border: 1px solid #ddd;
-                            margin-bottom: 15px;
-                            font-size: 14px;
-                            i{
-                                // font-size: 14px;
-                                color: #ccc !important;
+                        &:nth-child(2){
+                            margin:0px 98.5px;
+                            padding: 9px;
+                            // border: 1px solid black;
+                            position: relative;
+                            img{
+                                width: 138px;
+                                height: 138px;
                             }
-                            input{
-                                border: none;
-                                padding: 12px 10px 12px 14px;
-                                outline: none;
-                            }
-                        }
-                        &:nth-child(4){
-                            display: flex;
-                            justify-content: space-between;
-                            margin-bottom: 15px;
-                            a{
-                                color: rgb(27,102,199);
-                                &:hover{
-                                    text-decoration: underline;
+                            span{
+                                display: block;
+                                width: 20px;
+                                height: 20px;
+                                border: 1px solid transparent;
+                                position: absolute;
+                                &:nth-child(1){
+                                    top: 9px;
+                                    left: 9px;
+                                    border-top-color: #e1e2e4;
+                                    border-left-color: #e1e2e4;
+                                }
+                                &:nth-child(2){
+                                    top: 9px;
+                                    right: 9px;
+                                    border-top-color: #e1e2e4;
+                                    border-right-color: #e1e2e4;
+                                }
+                                &:nth-child(3){
+                                    bottom: 9px;
+                                    left: 9px;
+                                    border-bottom-color: #e1e2e4;
+                                    border-left-color: #e1e2e4;
+                                }
+                                &:nth-child(4){
+                                    bottom: 9px;
+                                    right: 9px;
+                                    border-right-color: #e1e2e4;
+                                    border-bottom-color: #e1e2e4;
                                 }
                             }
                         }
-                        &:nth-child(5){
-                            background: #4490f7;
-                            color: white;
-                            font-weight: bold;
-                            font-size: 16px;
-                            text-align: center;
-                            line-height: 48px;
-                            margin-bottom: 15px;
-                        }
-                        &:nth-child(6){
-                            text-align: right;
-                            color: #2e7fdb;
+                        &:nth-child(3){
+                            margin-top: 20px;
                             font-size: 12px;
+                        }
+                        .spa2{
+                            // display: block;
+                            background: url(https://passport.baidu.com/passApi/img/pass_login_icons.png);
+                            background-position: 0 -86px;
+                            width: 44px;
+                            height: 44px;
+                            position: absolute;
+                            right: 0px;
+                            bottom: 0px;
                         }
                     }
                 }
+                .loginMethod{
+                    display: none;
+                }
             }
+        }
+    }
+    .regis{
+        .smectite{
+            display: block;
         }
     }
 }
