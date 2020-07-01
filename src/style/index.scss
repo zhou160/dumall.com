@@ -6,25 +6,37 @@
     position: relative;
     width: 100%;
     height: 600px;
-    // overflow: hidden;
+    overflow: hidden;
+    &:hover{
+        .btn{
+            >span{
+                display: block;
+            }
+        }
+    }
     .btn{
         height: 16px;
         >span{
-            display: block;
+            display: none;
             position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 30px;
-            border: 1px solid rgba(0,0,0,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            // border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(0,0,0,0.1);
             // background: red;
             z-index: 1;
-            font-size: 24px;
-            line-height: 30px;
+            font-size: 30px;
+            line-height: 50px;
             text-align: center;
-            color: rgba(0,0,0,0.1);
-            top: 300px;
+            color: rgba(255,255,255,0.6);
+            top: 250px;
+            cursor:pointer;
             &:nth-child(1){
-                
+                left:100px;
+            }
+            &:nth-child(2){
+                right:100px;
             }
         }
     }
@@ -35,18 +47,13 @@
         width: 9600px;
         >li{
             width: 1920px;
-            // width: 1350px;
             height: 600px;
             position: relative;
             >img{
                 position: absolute;
                 height: 100%;
                 height: 600px;
-                // left: 50%;
-                // margin-left: -960px;
-                // right: 0px;
-                left: -250px;
-                // margin: 0 auto;
+                left: -230px;
             }
         }
     }
@@ -60,7 +67,7 @@
         z-index: 10;
         li{
             width: 24px;
-            height: 5px;
+            height: 2px;
             background: black;
         }
         .active{
@@ -308,10 +315,49 @@
                         }
                     }
                 }
+                >dl{
+                    display: none;
+                    width: 214px;
+                    height: 85px;
+                    padding: 8px;
+                    position: absolute;
+                    // bottom: -101px;
+                    // z-index: -1;
+                    bottom: 0px;
+                    background-image: linear-gradient(249deg, #E3383D 0%, #FF7579 100%);
+                    color: white;
+                    // &:hover{
+                    //     animation: eval 3s;
+                    // }
+                    >dt{
+                        width: 214px;
+                        height: 51px;
+                        // text-overflow: clip;
+                        // border: 1px solid black;
+                        display:-webkit-box;
+                        overflow:hidden;
+                        text-overflow:ellipsis;
+                        -webkit-line-clamp:3;
+                        -webkit-box-orient:vertical;
+                    }
+                    >dd{
+                        margin-top: 11px;
+                    }
+                }
             }
+           
         }
     }
 }
+
+// @keyframes eval{
+//     from{
+//         transform: translateY(-101px);
+//     }
+//     to{
+//         transform: translateY(85px);
+//     }
+// }
 
 .news{
     text-align: center;

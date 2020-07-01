@@ -78,9 +78,9 @@ define(['jquery'],function($){//引入这个模块的入口文件必须要配置
             tel = register.eq(2).find('input').val(),
             password = register.eq(3).find('input').val();
             console.log('获得数据');
-            send(`../interface/addUser.php ?userName=${userName}&tel=${tel}&password=${password}`).then(function (data){
-                console.log(data);
-            });
+            // send(`../interface/addUser.php ?userName=${userName}&tel=${tel}&password=${password}`).then(function (data){
+            //     console.log(data);
+            // });
        });
 
     }

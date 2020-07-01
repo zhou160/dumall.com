@@ -64,6 +64,54 @@ header{
                     text-align: center;
                 }
             }
+           
+        }
+    }
+
+    // 下拉菜单
+    .manuList{
+        display: none;
+        background: white;
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        height: 186px;
+        padding: 7px 0px 20px 0px;
+        >span{
+            font-size: 40px;
+            color: #ccc;
+            position: absolute;
+            top: 60px;
+            &:nth-child(1){
+                left: 100px;
+            }
+            &:nth-child(2){
+                right: 100px;
+            }
+        }
+        .manu{
+            position: absolute;
+            height: 186px;
+            display: flex;
+            justify-content: space-between;
+            width: 1000px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            >li{
+                margin-right: 75px;
+                >img{
+                    width: 140px;
+                    height: 140px;
+                }
+                >p{
+                    margin-top: 4px;
+                    text-align: center;
+                    &:nth-of-type(2){
+                        color: #EF4146;
+                    }
+                }
+            }
         }
     }
 }
@@ -180,9 +228,64 @@ footer{
                 font-size: 24px !important;
                 color: #363636 !important;
             }
-            // span{
-            //     display: none;
-            // }
+            >span{
+                display: none;
+                padding: 10px 5px;
+                width: 54px;
+                background: #EF4146;
+                height: 38px;
+                line-height: 38px;
+                text-align: center;
+                font-size: 12px;
+                right: -3px;
+                // top: 1px;
+                // background: black;
+                position: absolute;
+                color: white;
+                >i{
+                    display: block;
+                    line-height: 16px;
+                }
+            }
+            >b{
+                display:block;
+                border: 1px solid #efefef;
+                width: 111px;
+                // height: 120px;
+                position: absolute;
+                right: 56px;
+                background: white;
+                top: 0px;
+                display: none;
+                >img{
+                    margin-top: 10px;
+                    width: 80px;
+                    height: 80px;
+                }
+                >i{
+                    // margin-top: -10px;
+                    display: block;
+                    font-size: 12px;
+                    line-height: 17px;
+                }
+            }
+            &:nth-child(1){
+                >span{
+                   
+                    top: 1px;
+                }
+            }
+            
+            &:nth-child(3){
+                >b{
+                    top: 64px;
+                }
+            }
+            &:nth-child(5){
+                >span{
+                    top: 240px;
+                }
+            }
             &:nth-child(6){
                 display: none;
             }

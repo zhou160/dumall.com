@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1904699_jrdktx9frf.css">
-    <link rel="stylesheet" href="../style/index.min.css">
-    <link rel="stylesheet" href="../style/public.min.css">
+    <link rel="stylesheet" href="../style/dist/index.min.css">
+    <link rel="stylesheet" href="../style/dist/public.min.css">
 
 </head>
 
@@ -50,6 +50,38 @@
                 </dd>
             </dl>
         </nav>
+        <!-- 鼠标移入下拉菜单出现 -->
+        <div class="manuList">
+            <span>&lt;</span>
+            <span>&gt;</span>
+                <ul class="manu">
+                        <li>
+                            <img src="../img/pro1-0.png" alt="">
+                            <p>小度教育智能屏</p>
+                            <p>￥699</p>
+                        </li>
+                        <li>
+                                <img src="../img/product01.jpg" alt="">
+                                <p>小度教育智能屏</p>
+                                <p>￥699</p>
+                            </li>
+                            <li>
+                                    <img src="../img/product01.jpg" alt="">
+                                    <p>小度教育智能屏</p>
+                                    <p>￥699</p>
+                                </li>
+                                <li>
+                                        <img src="../img/product01.jpg" alt="">
+                                        <p>小度教育智能屏</p>
+                                        <p>￥699</p>
+                                    </li>
+                                    <li>
+                                            <img src="../img/product01.jpg" alt="">
+                                            <p>小度教育智能屏</p>
+                                            <p>￥699</p>
+                                        </li>
+                    </ul>
+        </div>
     </header>
     <!-- 轮播图 -->
     <nav class="banner">
@@ -263,6 +295,12 @@
                             <span>￥119</span>
                         </h3>
                     </div>
+                    <dl>
+                        <dt>终于等到你了我朝思暮想的宝贝小度在家1S 智能家庭助手，迫不及待地试用下，一切安好，非常顺利！无论是播放音乐、评书、故事等等，音质都非常好！与小度对话、提问等，大部分时间都是所问即答，感觉很好很有趣儿！谢谢这小度背后辛勤的百度高科技智能硬件、软件研发、开发团队，您们辛苦了，向您们致以我最美好的敬意！</dt>
+                        <dd>
+                                来自在***隆的评论
+                        </dd>
+                    </dl>
                 </a>
             </li>
             <li>
@@ -459,33 +497,40 @@
 
     <!-- 右侧固定列表 -->
     <div class="rightFixed">
+        <!-- 所有的span是隐藏的，需要鼠标移入显示，以及b也是隐藏的需要移入显示 -->
         <ul>
             <li>
                 <img src="../img/redpackage.gif" alt="">
-                <span>新人礼包</span>
+                <span><i>新人</i><i>礼包</i></span>
             </li>
             <li>
                 <i class="iconfont icon-shouji1"></i>
-                <b></b>
+                <b>
+                    <img src="../img/indexQR.png" alt="">
+                    <i>扫一扫进入移动版</i>
+                </b>
             </li>
             <li>
                 <i class="iconfont icon-weixin"></i>
-                <b></b>
+                <b>
+                    <img src="../img/indexQR.png" alt="">
+                    <i>微信扫码关注[小度智选商城]，5-799元惊喜豪礼送不停</i>
+                </b>
             </li>
             <li>
                 <i class="iconfont icon-gouwuche"></i>
             </li>
             <li>
                 <i class="iconfont icon-gouwuche"></i>
-                <span>联系客服</span>
+                <span><i>联系</i> <i>客服</i></span>
             </li>
             <li>
                 <i class="iconfont icon-xiangshang"></i>
-                <span>返回顶部</span>
+                <span><i>返回</i><i>顶部</i></span>
             </li>
         </ul>
     </div>
-    <script src="../js/require.min.js" data-main="../js/main.index"></script>
+    <script src="../js/require.js" data-main="../js/main.index"></script>
 </body>
 
 </html>

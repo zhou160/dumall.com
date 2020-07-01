@@ -1,8 +1,8 @@
 requirejs.config({
     paths:{
-        jquery:'../js/jquery.min',
-        require:'../js/require.min',
-        register:'../js/lib/event.register.min'
+        require:'../js/require',
+        jquery:'../js/jquery',
+        register:'../js/lib/event.register'
     },
     shim:{//第三方模块依赖
         require:['jquery']//这个数组是依赖列表

@@ -25,6 +25,18 @@ gulp.task('copycss',function() {
     .pipe(gulp.dest('./dist/style'))
     .pipe(connect.reload());
 });
+
+//复制并压缩css文件到src中
+gulp.task('copycssSrc',function() {
+    return gulp.src('./src/style/*.scss')
+    .pipe(sass().on('error',sass.logError))
+    .pipe(gulp.dest('./src/style/dist'))
+    .pipe(cssmin())
+    .pipe(rename({suffix: '.min'}))//统一对于压缩文件添加min
+    .pipe(gulp.dest('./src/style/dist'))
+    .pipe(connect.reload());
+});
+
 //复制并压缩lib中的js文件
 
 gulp.task('copylibjs',function() {
@@ -78,13 +90,15 @@ gulp.task('watch', function() {
     gulp.watch('./src/js/*.json', gulp.series('copyjson'));
     gulp.watch('./src/img/*', gulp.series('copyimg'));
     gulp.watch('./interface/*.php',gulp.series('copyinterface'));
+    gulp.watch('./src/style/*.scss',gulp.series('copycssSrc'));
+
 });
 
 
 //启动临时服务器
 gulp.task('server',function() {
     connect.server({
-        root:"dist",
+        root:"src",
         port:1017,//接口随便写
         livereload:true
     });
