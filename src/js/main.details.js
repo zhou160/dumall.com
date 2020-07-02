@@ -7,7 +7,8 @@ require.config({
         cookie:'../js/jquery.cookie'
     },
     shim:{
-        require:['jquery']
+        require:['jquery'],
+        cookie:['jquery']
     }
 });
 
@@ -15,16 +16,13 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
     //直接在这里进行详情页信息渲染
     var left = '',//用于拼接左侧信息字符串
         right = '';//用于拼接右侧信息字符串
+        titleHover.topContent();//加载头部数据
+        details.detailsContent();//加载推荐数据
     titleHover.getAjax(`../../interface/detailsInfo.php?id=${location.search.split("=")[1]}`).then(function (data){
-        // console.log('加载成功');
-        // console.log(data);
         data = JSON.parse(data);
         var pic = JSON.parse(data[0].pic),
             detail = JSON.parse(data[0].details),
             price = JSON.parse(data[0].price);
-            // Promotion = JSON.parse(detail.Promotion);
-            // console.log(detail.Promotion[0]);
-            // data.forEach(function (item){
                 left = `
                 <ul class="bigImg">
                     <li class="active">
@@ -130,10 +128,8 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
             $('.right').html(right);
             // console.log(left);
             // console.log(right);
-        titleHover.topContent();
         titleHover.titleHover();//头部鼠标移入显示下拉列表
         titleHover.rightFixed();//右侧固定列表
-        details.detailsContent();
         details.detailEvent();
         details.addShop();
     });

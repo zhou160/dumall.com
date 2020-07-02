@@ -13,9 +13,9 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
         // console.log('detailsContent');
         titleHover.getAjax('../../interface/selectProduct.php').then(function (data){
             data = JSON.parse(data);
-            var img = '';
+            var img1 = '';
             data.forEach(function (item){
-                img += `
+                img1 += `
                 <li>
                 <a href="./details.html?id=${item.id}">
                 <img src="../${JSON.parse(item.pic)[0]}" alt="">
@@ -27,9 +27,9 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
             });
             // console.log(img);
             for(var i=0;i<1 ;i++){
-                img += img;
+                img1 += img1;
             }
-            $('.recoListCon .imgList').html(img);
+            $('.recoListCon .imgList').html(img1);
         });
 
     }

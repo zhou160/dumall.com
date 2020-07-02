@@ -14,7 +14,6 @@ require.config({
 
 
 require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHover,$){
-    // console.log('加载成功');
     //在这里进行购物车信息渲染
     shopCart.shopCartContent();
     titleHover.topContent();//头部产品渲染
@@ -22,8 +21,9 @@ require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHove
 
     var cookieArr = JSON.parse($.cookie("goods")),
         idArr = [];//用于存放cookie中的id
-        console.log(cookieArr);
-        if(cookieArr){
+        //判断购物车中是否有内容，如果没有内容显示提示，如果有内容则渲染购物车
+        if(cookieArr.length){
+            console.log('有数据');
             $('body>div').removeClass('shop');
             cookieArr.forEach(function (item){
                 idArr.push(item.id);
@@ -37,9 +37,9 @@ require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHove
                         price = JSON.parse(item.price);
                     
                     shopcart += `
-                    <tr>
+                    <tr data-id="${item.id}">
                     <td>
-                        <span>
+                        <span class="check">
                             <i class="iconfont icon-xuanzhong"></i>
                         </span>
                     </td>
@@ -53,20 +53,22 @@ require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHove
                             </dd>
                         </dl>
                     </td>
-                    <td>￥39.00</td>
-                    <td>
-                        <span>-</span>
-                        <input type="text" value="1">
-                        <span>+</span>
-                    </td>
                     <td>￥${price.price[0]}</td>
-                    <td>删除</td>
+                    <td>
+                        <span class="reduce">-</span>
+                        <input type="text" value="1">
+                        <span class="add">+</span>
+                    </td>
+                    <td>￥</td>
+                    <td><span class="del">删除</span></td>
                 </tr>
                     `
                 });
                 $('tbody').html(shopcart);
+                shopCart.shopCartEvent();//控制购物车列表中的事件操作
             });
         }else{
+            console.log('没有数据');
             $('body>div').addClass('shop');
         }
     
