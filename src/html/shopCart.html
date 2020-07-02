@@ -85,6 +85,11 @@
     </header>
     <!-- 购物车信息 -->
     <div class="shopCart">
+        <!-- 当购物车为空的时候显示页面 -->
+        <div class="shopNull">
+            <p>您的购物车是空的</p>
+            <a href="./index.html">去逛逛</a>
+        </div>
         <!-- 购物车表格处 -->
         <table class="shopInfo">
             <thead>
@@ -111,7 +116,7 @@
                 </th>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td>
                         <span>
                             <i class="iconfont icon-xuanzhong"></i>
@@ -160,7 +165,7 @@
                     </td>
                     <td>￥312.00</td>
                     <td>删除</td>
-                </tr>
+                </tr> -->
             </tbody>
             <tfoot>
                 <tr>
@@ -178,7 +183,7 @@
             猜你喜欢
         </div>
         <ul class="likeList">
-            <li>
+            <!-- <li>
                 <img src="../img/like01.jpg" alt="">
                 <p>小度智能音箱 2 红外版</p>
                 <p>
@@ -217,7 +222,7 @@
                     <span>￥99</span>
                     <span>￥119</span>
                 </p>
-            </li>
+            </li> -->
         </ul>
     </div>
 
@@ -271,6 +276,7 @@
             </li>
         </ul>
     </footer>
+    <script src="../js/require.js" data-main="../js/main.shopCart"></script>
 </body>
 
 </html>

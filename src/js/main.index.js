@@ -12,7 +12,7 @@ require.config({
 
 require(['jquery','index','titleHover'],function ($,index,titleHover){
     // console.log('加载成功');
-    titleHover.topContent();
+    titleHover.topContent();//头部产品渲染
     index.banner();
     titleHover.titleHover();//鼠标移入头部列表显示下拉菜单
     titleHover.rightFixed();//鼠标移入右侧固定列表显示效果

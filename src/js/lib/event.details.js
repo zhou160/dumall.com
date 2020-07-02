@@ -5,7 +5,7 @@
  * 
  */
 
-define(['jquery','titleHover'],function($,titleHover) {
+define(['titleHover','jquery','cookie'],function(titleHover,$) {
     //引入的titleHover是公共部分事件模块
 
     //用于详情页数据渲染
@@ -23,7 +23,7 @@ define(['jquery','titleHover'],function($,titleHover) {
                 <span>${JSON.parse(item.price).price[0]}元</span>
                 </a>
             </li>
-                `;
+                `
             });
             // console.log(img);
             for(var i=0;i<1 ;i++){
@@ -106,13 +106,65 @@ define(['jquery','titleHover'],function($,titleHover) {
     //购物车添加功能
     function addShop(){
         $('.right li').eq(6).click(function (){
-            console.log('添加');
+            // console.log('添加');
+        var first = $.cookie("goods")==null ? true : false
+        var id = $(".right li").eq(0).attr("data-id");
+        var num = $(".right li").eq(5).find("span").eq(1).html();
+        console.log(id,num);
+		var same = false//用于标记当前加入购物车商品之前是否添加过,默认没有添加过
+		// console.log(`数量${num}`)
+		if(first){
+			//cookie第一次添加
+			var arr = [{id:id,num:num}]
+			$.cookie("goods",JSON.stringify(arr),{
+				expires:7,
+				path:'/'
+			})
+		}else{
+			//cookie已经存在
+            var cookieArr = JSON.parse($.cookie("goods"))
+            // console.log(cookieArr);
+			for(var i=0;i<cookieArr.length;i++){
+				//如果该商品已经存在这里就进入分支
+				if(cookieArr[i].id == id){
+					console.log("商品已经存在")
+					same = true
+					cookieArr[i].num = parseInt(cookieArr[i].num)
+					cookieArr[i].num += parseInt(num)
+					break
+				}
+			}
+			if(!same){
+				console.log("进入第一次添加商品")
+				var obj = {id:id,num:num}
+				cookieArr.push(obj)
+			}
+			$.cookie("goods",JSON.stringify(cookieArr),{
+				expires:1,
+				path:'/'
+			})
+        }
+        sum();
         });
     }
+
+
+    function sum(){
+		var cookieArr = JSON.parse($.cookie("goods"))
+		console.log(cookieArr)
+		var sum = 0
+		if(cookieArr != null){
+			for( var i=0;i<cookieArr.length;i++){
+				sum += parseInt(cookieArr[i].num)
+			}
+		}
+		return sum
+	}
 
     return{
         detailsContent:detailsContent,
         detailEvent:detailEvent,
+        addShop:addShop,
         addShop:addShop
     }
 

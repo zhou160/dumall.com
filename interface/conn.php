@@ -3,7 +3,7 @@
 // header('content-type:text/html;charset=utf-8');
 
 $mysql_conf = array(
-    'host'=>'localhost:3306',  // 地址
+    'host'=>'127.0.0.1:3306',  // 地址
     'db_user'=>'root', // 用户名
     'db_pass'=>'root', // 密码
     'db'=>'nz204'    // 数据库名

@@ -1,7 +1,38 @@
 @import "base";
 @import "mixin";
+
+
+
 .shopCart {
     @include main;
+    .shopNull{
+        display: none;
+        width: 100%;
+        height: 100px;
+        background: url(http://localhost/php-mysql/dumall.com/src/img/shopCartNull.png)no-repeat;
+        background-size: 144px 141px;
+        background-position:center 30px;
+        padding-top: 170px;
+        >p{
+            text-align: center;
+            margin: 20px 0px;
+        }
+        >a{
+            width: 158px;
+            height: 38px;
+            display: block;
+            line-height: 38px;
+            text-align: center;
+            color: white;
+            background: red;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 5px;
+            font-size: 17px;
+        }
+    }
     .shopInfo {
         border-collapse: separate;
         border-spacing: 0px 8px;
@@ -217,5 +248,15 @@
                 }
             }
         }
+    }
+}
+
+//用于控制购物车样式
+.shop{
+    .shopNull{
+        display: block;
+    }
+    table{
+        display: none;
     }
 }

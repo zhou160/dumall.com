@@ -3,7 +3,8 @@ require.config({
         require:'../js/require',
         jquery:'../js/jquery',
         details:'../js/lib/event.details',
-        titleHover:'../js/lib/event.title'
+        titleHover:'../js/lib/event.title',
+        cookie:'../js/jquery.cookie'
     },
     shim:{
         require:['jquery']
@@ -68,7 +69,7 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
                 `
     
                 right = `
-                <li>
+                <li data-id="${data[0].id}">
                     <span>${data[0].title}</span>
                     <span>100%</span>
                 </li>
