@@ -1,5 +1,6 @@
-define(['jquery'],function($){//引入这个模块的入口文件必须要配置jquery文件路径
+define(['jquery','titleHover'],function($,titleHover){//引入这个模块的入口文件必须要配置jquery文件路径
    
+    var baseUrl = 'http://localhost/php-mysql/dumall.com';
 //    这里是关于登录页面弹窗的问题
     function login(){
 
@@ -81,6 +82,9 @@ define(['jquery'],function($){//引入这个模块的入口文件必须要配置
             // send(`../interface/addUser.php ?userName=${userName}&tel=${tel}&password=${password}`).then(function (data){
             //     console.log(data);
             // });
+            titleHover.getAjax(`${baseUrl}/interface/addUser.php?userName=${userName}&&password=${password}&&tel=${tel}`).then(function (data){
+                console.log(data);
+            });
        });
 
     }
@@ -99,21 +103,21 @@ define(['jquery'],function($){//引入这个模块的入口文件必须要配置
     }
 
     //ajax
-    function send(url){
-        return new Promise(function (resolve,reject){
-			$.ajax({
-				type:"get",
-                url:url,
-                dataType:'json',
-				success:function (body){
-					resolve(body)
-				},
-				error:function (){
-					reject(err)
-				}
-			})
-		})
-    }
+    // function send(url){
+    //     return new Promise(function (resolve,reject){
+	// 		$.ajax({
+	// 			type:"get",
+    //             url:url,
+    //             dataType:'json',
+	// 			success:function (body){
+	// 				resolve(body)
+	// 			},
+	// 			error:function (){
+	// 				reject(err)
+	// 			}
+	// 		})
+	// 	})
+    // }
     return{
         login:login,
         register:register

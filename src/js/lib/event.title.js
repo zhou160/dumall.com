@@ -8,13 +8,16 @@
  */
 define(['jquery'], function($) {
     //鼠标移入顶部信息列表显示
-    function titleHover(){
+     function titleHover(){
         console.log('头部显示');
+        // $()
         $('.list').find('dt').mouseenter(function() {
             $('.manuList').show();
-        }).mouseleave(function() {
+        })
+        $('.topTitle').mouseleave(function() {
             $('.manuList').hide();
         });
+
     }
 
     //右侧列表样式
