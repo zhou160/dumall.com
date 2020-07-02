@@ -1,7 +1,11 @@
-define(['jquery'],function() {
+
+/**
+ * 本模块是首页的功能模块
+ */
+define(['jquery','titleHover'],function($,titleHover) {
+    //定义
     // 首页轮播图
     function banner(){
-
         //鼠标点击小按钮进行切图
         $('.banner>ol>li').click(function() {
             $('.banner>ol>li').removeClass('active');
@@ -76,9 +80,69 @@ define(['jquery'],function() {
             $(this).find('dl').hide();
         })
     }
+
+    //首页信息渲染
+    function indexContent(){
+        titleHover.getAjax('../../interface/selectProduct.php').then(function(data){
+            data = JSON.parse(data);
+            console.log(data);
+            var manu = '',
+                content = '',
+                pic,
+                price,
+                details,
+                color,
+                eval;
+            data.forEach(function(item) {
+                pic = JSON.parse(item.pic);
+                console.log(item.price);
+                price = JSON.parse(item.price);
+                // console.log(price.price[0]);
+                details = JSON.parse(item.details);
+            //     manu += `
+            //     <li>
+            //     <img src="../${pic[0]}" alt="">
+            //     <p>${item.title}</p>
+            //     <p>￥${price.price[0]}</p>
+            // </li>
+            //     `
+                content += `
+                <li>
+                <a href="./details.html?id=${item.id}">
+                    <img src="../${pic[0]}" alt="">
+                    <span><i class="iconfont icon-smiling"></i> 满意度 100%</span>
+                    <i>小度</i>
+                    <div class="proInfo">
+                        <h1>${item.title}（${details.color[0]}）</h1>
+                        <h2>${details.h1}</h2>
+                        <h3>
+                            <span>￥${price.price[0]}</span>
+                            <span>￥${price.price[1]}</span>
+                        </h3>
+                    </div>
+                    <dl>
+                        <dt>${details.eval.p1}</dt>
+                        <dd>
+                                ${details.eval.p2}
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+                `
+            });
+            // $('.manu').html(manu);
+            for(var i=0;i<2;i++){
+                content += content;
+            }
+            $('.contentInfo').html(content);
+            // console.log(manu);
+            console.log(content);
+        });
+    }
     // function 
     return {
         banner:banner,
-        evaluate:evaluate
+        evaluate:evaluate,
+        indexContent,indexContent
     }
 });

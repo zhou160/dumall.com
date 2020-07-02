@@ -12,8 +12,10 @@ require.config({
 
 require(['jquery','index','titleHover'],function ($,index,titleHover){
     // console.log('加载成功');
+    titleHover.topContent();
     index.banner();
-    titleHover.titleHover();
-    titleHover.rightFixed();
-    index.evaluate();
+    titleHover.titleHover();//鼠标移入头部列表显示下拉菜单
+    titleHover.rightFixed();//鼠标移入右侧固定列表显示效果
+    index.evaluate();////产品列表区域鼠标移入显示评论
+    index.indexContent();//渲染产品区
 });
