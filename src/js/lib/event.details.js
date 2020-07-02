@@ -7,18 +7,20 @@
 
 define(['titleHover','jquery','cookie'],function(titleHover,$) {
     //引入的titleHover是公共部分事件模块
+    var baseUrl = 'http://localhost/php-mysql/dumall.com';
+    // console.log(`${baseUrl}/src/img/pro2-0.jpg`);
 
     //用于详情页数据渲染
     function detailsContent(){
         // console.log('detailsContent');
-        titleHover.getAjax('../../interface/selectProduct.php').then(function (data){
+        titleHover.getAjax(`${baseUrl}/interface/selectProduct.php`).then(function (data){
             data = JSON.parse(data);
             var img1 = '';
             data.forEach(function (item){
                 img1 += `
                 <li>
-                <a href="./details.html?id=${item.id}">
-                <img src="../${JSON.parse(item.pic)[0]}" alt="">
+                <a href="${baseUrl}/src/html/details.html?id=${item.id}">
+                <img src="${baseUrl}/src/${JSON.parse(item.pic)[0]}" alt="">
                 <p>${item.title}</p>
                 <span>${JSON.parse(item.price).price[0]}元</span>
                 </a>
@@ -117,9 +119,9 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
 			//cookie第一次添加
 			var arr = [{id:id,num:num}]
 			$.cookie("goods",JSON.stringify(arr),{
-				expires:7,
+				expires:1,
 				path:'/'
-			})
+			});
 		}else{
 			//cookie已经存在
             var cookieArr = JSON.parse($.cookie("goods"))
@@ -127,17 +129,17 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
 			for(var i=0;i<cookieArr.length;i++){
 				//如果该商品已经存在这里就进入分支
 				if(cookieArr[i].id == id){
-					console.log("商品已经存在")
-					same = true
-					cookieArr[i].num = parseInt(cookieArr[i].num)
-					cookieArr[i].num += parseInt(num)
-					break
+					console.log("商品已经存在");
+					same = true;
+					cookieArr[i].num = parseInt(cookieArr[i].num);
+					cookieArr[i].num += parseInt(num);
+					break;
 				}
 			}
 			if(!same){
-				console.log("进入第一次添加商品")
-				var obj = {id:id,num:num}
-				cookieArr.push(obj)
+				console.log("进入第一次添加商品");
+				var obj = {id:id,num:num};
+				cookieArr.push(obj);
 			}
 			$.cookie("goods",JSON.stringify(cookieArr),{
 				expires:1,

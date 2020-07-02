@@ -5,7 +5,7 @@ body,html{
 }
 
 body{
-    background: url('../img/register-bg.jpg');
+    background: url('http://localhost/php-mysql/dumall.com/src/img/register-bg.jpg');
     background-size:100%;
     position: relative;
     height: 100%;
@@ -235,7 +235,7 @@ body{
                 left:500px;
                 cursor: move;
                 .title{
-                    background: url('../img/register-logo.png')no-repeat 14px 10px;
+                    background: url('http://localhost/php-mysql/dumall.com/src/img/register-logo.png')no-repeat 14px 10px;
                     background-size: 7%;
                     font-size: 18px;
                     padding: 15px 0px 13px 0px;

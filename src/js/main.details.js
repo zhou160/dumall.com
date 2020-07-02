@@ -17,7 +17,8 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
     var left = '',//用于拼接左侧信息字符串
         right = '';//用于拼接右侧信息字符串
         titleHover.topContent();//加载头部数据
-        details.detailsContent();//加载推荐数据
+        details.detailsContent(),//加载推荐数据
+        baseUrl = 'http://localhost/php-mysql/dumall.com';
     titleHover.getAjax(`../../interface/detailsInfo.php?id=${location.search.split("=")[1]}`).then(function (data){
         data = JSON.parse(data);
         var pic = JSON.parse(data[0].pic),
@@ -26,19 +27,19 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
                 left = `
                 <ul class="bigImg">
                     <li class="active">
-                        <img src="../${pic[1]}" alt="">
+                        <img src="${baseUrl}/src/${pic[1]}" alt="">
                     </li>
                     <li>
-                        <img src="../${pic[2]}" alt="">
+                        <img src="${baseUrl}/src/${pic[2]}" alt="">
                     </li>
                     <li>
-                        <img src="../${pic[3]}" alt="">
+                        <img src="${baseUrl}/src/${pic[3]}" alt="">
                     </li>
                     <li>
-                        <img src="../${pic[4]}" alt="">
+                        <img src="${baseUrl}/src/${pic[4]}" alt="">
                     </li>
                     <li>
-                    <img src="../${pic[5]}" alt="">
+                    <img src="${baseUrl}/src/${pic[5]}" alt="">
                 </li>
                 </ul>
                 <div class="smallImg">
@@ -47,19 +48,19 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
                     <div class="imgListCon">
                         <div class="imgList">
                             <li>
-                                <img src="../${pic[1]}" alt="">
+                                <img src="${baseUrl}/src/${pic[1]}" alt="">
                             </li>
                             <li>
-                                <img src="../${pic[2]}" alt="">
+                                <img src="${baseUrl}/src/${pic[2]}" alt="">
                             </li>
                             <li>
-                                <img src="../${pic[3]}" alt="">
+                                <img src="${baseUrl}/src/${pic[3]}" alt="">
                             </li>
                             <li>
-                                <img src="../${pic[4]}" alt="">
+                                <img src="${baseUrl}/src/${pic[4]}" alt="">
                             </li>
                             <li>
-                                <img src="../${pic[5]}" alt="">
+                                <img src="${baseUrl}/src/${pic[5]}" alt="">
                             </li>
                         </div>
                     </div>

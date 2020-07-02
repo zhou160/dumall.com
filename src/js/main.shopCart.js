@@ -14,6 +14,7 @@ require.config({
 
 
 require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHover,$){
+    var baseUrl = 'http://localhost/php-mysql/dumall.com';
     //在这里进行购物车信息渲染
     shopCart.shopCartContent();
     titleHover.topContent();//头部产品渲染
@@ -28,14 +29,20 @@ require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHove
             cookieArr.forEach(function (item){
                 idArr.push(item.id);
             });
-            titleHover.getAjax(`../../interface/shopCart.php?idlist=${idArr}`).then(function (data){
+            titleHover.getAjax(`${baseUrl}/interface/shopCart.php?idlist=${idArr}`).then(function (data){
                 data = JSON.parse(data);
                 var shopcart = '';
                 data.forEach(function (item){
                     var pic = JSON.parse(item.pic),
                         detail = JSON.parse(item.details),
-                        price = JSON.parse(item.price);
-                    
+                        price = JSON.parse(item.price),
+                        num = 0;
+                        for(var i=0;i<cookieArr.length;i++){
+                            if(item.id == cookieArr[i].id){
+                                num = cookieArr[i].num;
+                            }
+                        }      
+                        // console.log(num);       
                     shopcart += `
                     <tr data-id="${item.id}">
                     <td>
@@ -45,7 +52,7 @@ require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHove
                     </td>
                     <td>
                         <dl>
-                            <dt><img src="../${pic[0]}" alt=""></dt>
+                            <dt><img src="${baseUrl}/src/${pic[0]}" alt=""></dt>
                             <dd>
                                 <span>${detail.h1}</span>
                                 <span>黑色</span>
@@ -53,13 +60,13 @@ require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHove
                             </dd>
                         </dl>
                     </td>
-                    <td>￥${price.price[0]}</td>
+                    <td>￥${price.price[0].toFixed(2)}</td>
                     <td>
                         <span class="reduce">-</span>
-                        <input type="text" value="1">
+                        <input type="text" value="${num}">
                         <span class="add">+</span>
                     </td>
-                    <td>￥</td>
+                    <td>￥<span>${(num * price.price[0]).toFixed(2)}</span></td>
                     <td><span class="del">删除</span></td>
                 </tr>
                     `

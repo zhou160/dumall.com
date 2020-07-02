@@ -5,6 +5,7 @@
 define(['jquery','titleHover'],function($,titleHover) {
     //定义
     // 首页轮播图
+    var baseUrl = 'http://localhost/php-mysql/dumall.com';
     function banner(){
         //鼠标点击小按钮进行切图
         $('.banner>ol>li').click(function() {
@@ -20,7 +21,7 @@ define(['jquery','titleHover'],function($,titleHover) {
         var bannerIndex = 0;
         //前进按钮
         goNext.click(function() {
-            console.log('goNext');
+            // console.log('goNext');
             bannerIndex ++;
             if(bannerIndex >= 5){
                 bannerIndex =0;
@@ -31,7 +32,7 @@ define(['jquery','titleHover'],function($,titleHover) {
         });
         //后退按钮
         goPro.click(function() {
-            console.log('goNext');
+            // console.log('goNext');
             bannerIndex --;
             if(bannerIndex < 0){
                 bannerIndex =4;
@@ -83,9 +84,9 @@ define(['jquery','titleHover'],function($,titleHover) {
 
     //首页信息渲染
     function indexContent(){
-        titleHover.getAjax('../../interface/selectProduct.php').then(function(data){
+        titleHover.getAjax(`${baseUrl}/interface/selectProduct.php`).then(function(data){
             data = JSON.parse(data);
-            console.log(data);
+            // console.log(data);
             var manu = '',
                 content = '',
                 pic,
@@ -95,7 +96,7 @@ define(['jquery','titleHover'],function($,titleHover) {
                 eval;
             data.forEach(function(item) {
                 pic = JSON.parse(item.pic);
-                console.log(item.price);
+                // console.log(item.price);
                 price = JSON.parse(item.price);
                 // console.log(price.price[0]);
                 details = JSON.parse(item.details);
@@ -109,7 +110,7 @@ define(['jquery','titleHover'],function($,titleHover) {
                 content += `
                 <li>
                 <a href="./details.html?id=${item.id}">
-                    <img src="../${pic[0]}" alt="">
+                    <img src="${baseUrl}/src/${pic[0]}" alt="">
                     <span><i class="iconfont icon-smiling"></i> 满意度 100%</span>
                     <i>小度</i>
                     <div class="proInfo">
@@ -136,7 +137,7 @@ define(['jquery','titleHover'],function($,titleHover) {
             }
             $('.contentInfo').html(content);
             // console.log(manu);
-            console.log(content);
+            // console.log(content);
         });
     }
     // function 
