@@ -76,7 +76,7 @@ header{
             position: absolute;
             z-index: 999;
             width: 100%;
-            // height: 186px;
+            height: 186px;
             padding: 7px 0px 20px 0px;
             >span{
                 font-size: 40px;
@@ -96,21 +96,28 @@ header{
                 display: flex;
                 justify-content: space-between;
                 width: 1000px;
+                // background: white;
                 left: 0;
                 right: 0;
                 margin: auto;
                 >li{
-                    margin-right: 75px;
-                    >img{
-                        width: 140px;
-                        height: 140px;
-                    }
-                    >p{
-                        margin-top: 4px;
-                        text-align: center;
-                        &:nth-of-type(2){
-                            color: #EF4146;
+                    // margin-right: 75px;
+                    >a{
+                        display: block;
+                        // width: 200px;
+                        // background: white;
+                        margin-right: 75px;
+                        img{
+                            width: 140px;
+                            height: 140px;
                         }
+                        p{
+                            margin-top: 4px;
+                            text-align: center;
+                            &:nth-of-type(2){
+                                color: #EF4146;
+                          }
+                    }
                     }
                 }
             }

@@ -86,13 +86,21 @@ body{
                 margin-bottom: 40px;
             }
             &:nth-child(2){
+                position: relative;
                 >div{
-                    top: 100px;
+                    top: -45px;
                     left: 100px;
                     h6{
                         top: 36px;
                         left: 26px;
                     }
+                }
+                >i{
+                    position: absolute;
+                    color: red;
+                    top: 47px;
+                    left: 97px;
+                    font-size: 12px;
                 }
             }
             .hid{
@@ -100,7 +108,7 @@ body{
             }
             &:nth-child(4){
                 >div{
-                    top: 212px;
+                    top: -80px;
                     left: 100px;
                     h6{
                         top: 68px;
@@ -109,9 +117,25 @@ body{
                 }
             }
             &:nth-child(2),&:nth-child(3),&:nth-child(4){
+                position: relative;
                 margin-bottom: 32px;
+                i{
+                    position: absolute;
+                    color: red;
+                    top: 47px;
+                    left: 97px;
+                    font-size: 12px;
+                }
             }
             &:nth-child(5){
+                position: relative;
+                i{
+                    position: absolute;
+                    color: red;
+                    top: 47px;
+                    left: 97px;
+                    font-size: 12px;
+                }
                 input:nth-of-type(1){
                     width: 184px;
                     margin-right: 9px;

@@ -1,9 +1,8 @@
-define(['jquery','titleHover'],function($,titleHover){//引入这个模块的入口文件必须要配置jquery文件路径
+define(['jquery','titleHover','md5'],function($,titleHover,md5){//引入这个模块的入口文件必须要配置jquery文件路径
    
     var baseUrl = 'http://localhost/php-mysql/dumall.com';
 //    这里是关于登录页面弹窗的问题
     function login(){
-
         //登录弹框显示与否
         $('#login').click(function (){
             $('.login').addClass('regis');
@@ -67,34 +66,77 @@ define(['jquery','titleHover'],function($,titleHover){//引入这个模块的入
        tipWindow(1);
        //密码处提示
        tipWindow(3);
+        var userNameRes,telRes,passwordRes,checkCodeRes;//用于存放各类验证结果
 
+        //输入信息过程中验证
+         var reg = /^[\u4e00-\u9fa5_a-zA-Z0-9]{1,14}$/,
+             reg1 = /^1[3-9]\d{9}$/,
+             reg2 = /^[a-zA-Z0-9]{8,14}$/;//用于验证密码
 
+    //用户名验证
+    $('.register li').eq(1).find('input').blur(function() {
+        check(reg,$(this),$(this).val(),'用户名不符合规范','用户名');
+    });
+    //手机号验证
+     $('.register li').eq(2).find('input').blur(function (){
+         check(reg1,$(this),$(this).val(),'手机号不符合规范','手机号');
+        // console.log(tel);
+        });
+
+     //密码验证
+     $('.register li').eq(3).find('input').blur(function (){
+        check(reg2,$(this),$(this).val(),'密码不符合规范','密码');
+     });
+
+     //验证码验证
+     var random;
+     $('.register li').eq(4).find('input').eq(1).click(function() {
+        random = parseInt(Math.random()*100000);
+       alert('您的验证码是：'+random);
+    });
+    $('.register li').eq(4).find('input').eq(0).blur(function() {
+        checkCode(random);
+        // console.log('执行');
+    });
+     
        //提交信息，注册账号
        $('.register>ul>li').eq(5).find('p').click(function() {
-        //    console.log(123);
-        //这里向后端发送信息
         //先获取用户输入的信息
         var register = $('.register').find('li'),
             userName  = register.eq(1).find('input').val(),
             tel = register.eq(2).find('input').val(),
             password = register.eq(3).find('input').val();
-            console.log('获得数据');
-            // send(`../interface/addUser.php ?userName=${userName}&tel=${tel}&password=${password}`).then(function (data){
-            //     console.log(data);
-            // });
-            titleHover.getAjax(`${baseUrl}/interface/addUser.php?userName=${userName}&&password=${password}&&tel=${tel}`).then(function (data){
-                console.log(data);
+            //提交信息之前先对于填入信息进行判断
+            userNameRes = check(reg,$('.register li').eq(1).find('input'),userName,'用户名不符合规范','用户名');
+            telRes = check(reg1,$('.redister li').eq(2).find('input'),tel,'手机号不符合规范','手机号');
+            passwordRes = check(reg2,$('.redister li').eq(3).find('input'),password,'密码不符合规范','密码');
+            checkCodeRes = checkCode(random);
+            console.log(userNameRes,telRes,passwordRes,checkCodeRes);
+            if(userNameRes && telRes && passwordRes && checkCodeRes){
+                console.log('正确');
+                titleHover.getAjax(`${baseUrl}/interface/addUser.php?userName=${$.md5(userName)}&&password=${$.md5(password)}&&tel=${$.md5(tel)}`).then(function (data){
+                    console.log(JSON.parse(data));
+                    data = JSON.parse(data);
+                    if(data.code == 100){
+                        alert('用户名已存在');
+                    }else if(data.code == 500){
+                        alert('网络错误');
+                    }else if(data.code == 200){
+                        location.href = './login.html';
+                    }
             });
+            }
+            
        });
 
     }
 
 
-    //提示窗
+    //用户名和密码处的提示窗
     function tipWindow(index){
          // 输入用户名处失去焦点就隐藏提示
          $(".register>ul>li").eq(index).find('input').on('blur',function() {
-            $(this).closest('li').find('div').addClass('hid');
+            $(this).closest('li').find('div').addClass('hid');  
         });
         //输入用户名处获得焦点就显示提示
         $(".register>ul>li").eq(index).find('input').on('focus',function() {
@@ -102,22 +144,44 @@ define(['jquery','titleHover'],function($,titleHover){//引入这个模块的入
         });
     }
 
-    //ajax
-    // function send(url){
-    //     return new Promise(function (resolve,reject){
-	// 		$.ajax({
-	// 			type:"get",
-    //             url:url,
-    //             dataType:'json',
-	// 			success:function (body){
-	// 				resolve(body)
-	// 			},
-	// 			error:function (){
-	// 				reject(err)
-	// 			}
-	// 		})
-	// 	})
-    // }
+    /**
+     * 用于格式验证
+     * @param  reg    用于验证的正则表达式
+     * @param  index  当前事件对象（一般填$(this)用于寻找信息提示框）
+     * @param  val    用于验证的值
+     * @param  msg    提示信息
+     * @param  clas   验证类别（比如用户名...）
+     */
+    function check(reg,index,val,msg,clas){
+        // console.log(val);
+        //不符合规范
+        if(val == ''){
+            index.parent().find('i').html(`${clas}不可为空`);
+            return false;
+        }else if(!reg.test(val)){
+            index.parent().find('i').html(msg);
+            return false;
+        }else{
+            index.parent().find('i').html('');
+            return true;
+        }
+    }
+
+    //验证码验证
+    function checkCode(random){
+        console.log(random);
+        var _this = $('.register li').eq(4).find('input').eq(0);
+        if(_this.val() == ''){
+           _this.parent().find('i').html('验证码不可为空');
+            return false;
+        }else if(_this.val() != random){
+            _this.parent().find('i').html('验证码错误');
+            return false;
+        }else{
+            _this.parent().find('i').html('');
+            return true;
+        }
+    }
     return{
         login:login,
         register:register

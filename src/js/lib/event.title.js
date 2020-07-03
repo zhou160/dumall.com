@@ -7,6 +7,8 @@
  * 
  */
 define(['jquery'], function($) {
+
+    var baseUrl = 'http://localhost/php-mysql/dumall.com';
     //鼠标移入顶部信息列表显示
      function titleHover(){
         console.log('头部显示');
@@ -58,7 +60,7 @@ define(['jquery'], function($) {
     //首页信息渲染
     function topContent(){
         console.log('头部信息渲染');
-        getAjax('../../interface/selectProduct.php').then(function(data){
+        getAjax(`${baseUrl}/interface/selectProduct.php`).then(function(data){
             data = JSON.parse(data);
             // console.log(data);
             var manu = '',
@@ -72,9 +74,11 @@ define(['jquery'], function($) {
                 details = JSON.parse(item.details);
                 manu += `
                 <li>
+                <a href = "./details.html?id=${item.id}">
                 <img src="../${pic[0]}" alt="">
                 <p>${item.title}</p>
                 <p>￥${price.price[0]}</p>
+                </a>
             </li>
                 `
             });
