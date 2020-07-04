@@ -172,6 +172,6 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
         titleHover.titleHover();//头部鼠标移入显示下拉列表
         titleHover.rightFixed();//右侧固定列表
         details.detailEvent();
-        details.addShop();
+        // details.addShop();
     });
 });

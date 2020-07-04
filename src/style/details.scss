@@ -294,25 +294,6 @@ body{
                     }
                 }
             }
-            // .manifer{
-            //     //这里放880的图 150的滑块
-            //     width: 300px;
-            //     height: 300px;
-            //     overflow: hidden;
-            //     position: absolute;
-            //     background: rgba(0,0,0,0.2);
-            //     top: 250px;
-            //     left: 556px;
-            //     display: none;
-            //     img{
-            //         position: absolute;
-            //         opacity: 0;
-            //     }
-            //     .active{
-            //         opacity: 1;
-            //         z-index: 5;
-            //     }
-            // }
             .recoTitle{
                 height: 49px;
                 padding-left: 28px;
@@ -391,12 +372,15 @@ body{
                     font-size: 20px;
                     float: left;
                     text-align: center;
+                    cursor: pointer;
                 }
                 .active{
                     color:red;
                 }
             }
+            
             .infoImg{
+                display: none;
                 >li{
                     width:1208px;
                     >img{
@@ -404,8 +388,60 @@ body{
                     }
                 }
             }
+            .proPram{
+                display: none;
+                img{
+                   width: 1208px; 
+                }
+            }
+            .shopAfter{
+                display: none;
+                img{
+                    width: 1208px;
+                }
+            }
+            .show{
+                display: block;
+            }
         }
-        
+        .proServer{
+            display: none;
+            position: absolute;
+            top: 0px;
+            line-height: 58px;
+            background: white;
+            // display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            width: 1208px;
+            padding: 0px 74px;
+            top: 800px;
+            >dd{
+                display: flex;
+                width: 790px;
+                >li{
+                    width: 158px;
+                    text-align: center;
+                    &:last-child{
+                        >span{
+                            display: block;
+                            height: 48px;
+                            width: 158px;
+                            background: red;
+                            border-radius: 5px;
+                            line-height: 48px;
+                            color: white;
+                            // vertical-align: middle;
+                            margin-top: 5px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .active{
+                    color: red;
+                }
+            }
+        }
     }
     
     .success{

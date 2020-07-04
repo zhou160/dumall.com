@@ -50,6 +50,14 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
             $('#sucess').removeClass('open');
         });
 
+        //购物车添加
+        $('.right li').eq(6).click(function (){
+            addShop();
+        });
+        $('#add').click(function() {
+            console.log('添加');
+            addShop();
+        });
         //放大镜
         manifer();
 
@@ -60,11 +68,17 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
             console.log('点击');
         });
 
+        //评价处切换
+        Eval();
+
+        //产品相关服务处定位
+        server();
+
     }
 
     //购物车添加功能
     function addShop(){
-        $('.right li').eq(6).click(function (){
+        // $('.right li').eq(6).click(function (){
             // console.log('添加');
         var first = $.cookie("goods")==null ? true : false
         var id = $(".right li").eq(0).attr("data-id");
@@ -117,7 +131,7 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
                 top: t
             });
            });
-        });
+        // });
     }
 
     //计算购物车数量
@@ -235,11 +249,44 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
          // console.log('goPro');
      });
     }
+
+    //评价处点击
+    function Eval(){
+        $('.infoTitle').on('click','li',function() {
+            console.log(111);
+            $(this).parent().find('li').removeClass('active');
+            $(this).addClass('active');
+            $('.infoImg').add('.proPram').add('.shopAfter').removeClass('show');
+            $('.proServer dd li').removeClass('active');
+            $('.proServer dd li').eq($(this).index()).addClass('active');
+            switch($(this).index()){
+                case 0: $('.infoImg').addClass('show');
+                        break;
+                case 1: $('.proPram').addClass('show');
+                    break;
+                case 2: $('.shopAfter').addClass('show');
+                    break;
+            }
+        });
+    }
+
+    //产品相关服务定位
+    function server(){
+        $(window).scroll(function() {
+            console.log($(window).scrollTop());
+            if($(window).scrollTop() >= 800){
+                $('.proServer').css({
+                    display:'flex',
+                    top:$(window).scrollTop()
+                });
+            }else{
+                $('.proServer').css('display','none');
+            }
+        })
+    }
     return{
         detailsContent:detailsContent,
-        detailEvent:detailEvent,
-        addShop:addShop,
-        addShop:addShop
+        detailEvent:detailEvent
     }
 
 });
