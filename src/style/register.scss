@@ -283,6 +283,14 @@ body{
                         padding-bottom: 50px;
                         border-bottom: 1px solid #eee;
                         li{
+                            position: relative;
+                            b{
+                                color: red;
+                                font-size: 12px;
+                                position: absolute;
+                                top: 38px;
+                                left: 0px;
+                            }
                             &:nth-child(1){
                                 height: 19px;
                                 margin-bottom: 10px;

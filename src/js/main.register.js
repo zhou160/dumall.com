@@ -13,6 +13,6 @@ requirejs.config({
     }
 });
 require(['register','jquery','require'],function(register,$) {
-    register.login();
+    register.registerLogin();
     register.register();
 })

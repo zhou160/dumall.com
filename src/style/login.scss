@@ -77,20 +77,17 @@ body{
                     font-size: 12px;
                     color:#ccc;
                     margin-top:15px;
+                    border: none;
+                    border: 1px solid #ccc;
+                }
+                i{
+                    color: red;
+                    font-size: 12px;
+                    position: absolute;
                 }
                 .inp1{
                     margin-top: 15px;
                     margin-bottom: 10px;
-                }
-                i{
-                    position: absolute;
-                    top: 180px;
-                    left: 28px;
-                    font-size: 12px;
-                    font-weight: bold;
-                }
-                .active{
-                    display: none;
                 }
                 .btn{
                     width: 302px;
@@ -101,6 +98,7 @@ body{
                     color: white;
                     font-weight:bold;
                     margin-bottom: 12px;
+                    cursor: pointer;
                 }
                 span{
                     display: block;

@@ -2,7 +2,8 @@ define(['jquery','titleHover','md5'],function($,titleHover,md5){//引入这个�
    
     var baseUrl = 'http://localhost/php-mysql/dumall.com';
 //    这里是关于登录页面弹窗的问题
-    function login(){
+    function registerLogin(){
+        console.log($('.register li').eq(6).find('input').prop('checked'));
         //登录弹框显示与否
         $('#login').click(function (){
             $('.login').addClass('regis');
@@ -54,10 +55,55 @@ define(['jquery','titleHover','md5'],function($,titleHover,md5){//引入这个�
         $('.content li').eq(5).click(function() {
             $('.login').removeClass('regis');
         });
+       //登录功能输入框判断
+       $('.loginPhone .content li').eq(1).find('input').blur(function() {
+            loginCheck($(this),'用户名');
+       });
+       $('.loginPhone .content li').eq(2).find('input').blur(function() {
+            loginCheck($(this),'密码');
+       });
 
-
+       //登录功能
+       $('.content li').eq(4).click(function() {
+            // if()
+            var userNameRes = loginCheck($('.loginPhone .content li').eq(1).find('input'),'用户名'),
+                passwordRes = loginCheck($('.loginPhone .content li').eq(2).find('input'),'密码'),
+                userName = $('.loginPhone .content li').eq(1).find('input').val(),
+                password= $('.loginPhone .content li').eq(2).find('input').val();
+            if(userNameRes && passwordRes){
+                titleHover.getAjax(`http://localhost/php-mysql/dumall.com/interface/userSelect.php?userName=${userName}&&password=${$.md5(password)}`).then(function (data){
+                    // console.log(data);
+                    data = JSON.parse(data);
+                    if(data.code == 100){
+                        alert(data.msg);
+                    }else if(data.code == 200){
+                        location.href = './index.html';
+                        $.cookie("user",JSON.stringify({'userName':userName}),{
+                            path:'/'
+                        })
+                    }
+                });
+            }
+       });
 
     }
+
+     //判断是否输入数据
+        /**
+         * 
+         * @param {*} index   输入框所在li的位置
+         * @param {*} inpName 输入框名字
+         */
+        function loginCheck(index,inpName){
+            if(index.val() == ''){
+                console.log('为空')
+                index.parent().find('b').html(`${inpName}不能为空`);
+                return false;
+            }else{
+                index.parent().find('b').html('');
+                return true;
+            }
+        }
 
 
     // 这里用于控制注册功能的代码
@@ -106,25 +152,30 @@ define(['jquery','titleHover','md5'],function($,titleHover,md5){//引入这个�
             userName  = register.eq(1).find('input').val(),
             tel = register.eq(2).find('input').val(),
             password = register.eq(3).find('input').val();
+            console.log('md5加密',$.md5(userName));
             //提交信息之前先对于填入信息进行判断
             userNameRes = check(reg,$('.register li').eq(1).find('input'),userName,'用户名不符合规范','用户名');
             telRes = check(reg1,$('.redister li').eq(2).find('input'),tel,'手机号不符合规范','手机号');
             passwordRes = check(reg2,$('.redister li').eq(3).find('input'),password,'密码不符合规范','密码');
             checkCodeRes = checkCode(random);
             console.log(userNameRes,telRes,passwordRes,checkCodeRes);
-            if(userNameRes && telRes && passwordRes && checkCodeRes){
-                console.log('正确');
-                titleHover.getAjax(`${baseUrl}/interface/addUser.php?userName=${$.md5(userName)}&&password=${$.md5(password)}&&tel=${$.md5(tel)}`).then(function (data){
-                    console.log(JSON.parse(data));
-                    data = JSON.parse(data);
-                    if(data.code == 100){
-                        alert('用户名已存在');
-                    }else if(data.code == 500){
-                        alert('网络错误');
-                    }else if(data.code == 200){
-                        location.href = './login.html';
-                    }
-            });
+            if($('.register li').eq(6).find('input').prop('checked')){
+                if(userNameRes && telRes && passwordRes && checkCodeRes){
+                    titleHover.getAjax(`${baseUrl}/interface/addUser.php?userName=${userName}&&password=${$.md5(password)}&&tel=${$.md5(tel)}`).then(function (data){
+                        console.log(JSON.parse(data));
+                        data = JSON.parse(data);
+                        if(data.code == 100){
+                            alert('用户名已存在');
+                            $('.register').find('li');
+                        }else if(data.code == 500){
+                            alert('网络错误');
+                        }else if(data.code == 200){
+                            location.href = './login.html';
+                        }
+                });
+                }
+            }else{
+                alert('请同意协议');
             }
             
        });
@@ -183,7 +234,7 @@ define(['jquery','titleHover','md5'],function($,titleHover,md5){//引入这个�
         }
     }
     return{
-        login:login,
+        registerLogin:registerLogin,
         register:register
     }
 })

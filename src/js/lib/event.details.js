@@ -38,72 +38,29 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
     //详情页基本事件
     function detailEvent(){
         //鼠标移入换图
-        $('.left .smallImg .imgList').on('mouseenter','li',function() {
-            // console.log($(this).index());
-            $('.left .bigImg li').removeClass('active');
-            $('.left .bigImg li').eq($(this).index()).addClass('active');
-        });
-
-
+        changeImg();
         //小图左右移动
-        var goNext = $('.smallImg span').eq(1),
-        goPro = $('.smallImg span').eq(0),
-        index = 0;
-        //向右移动
-    goNext.click(function (){
-        index ++;
-        if(index >= 1){
-            index = 1;
-        }
-        $('.left .imgList').css('left',-90*index);
-    });
-    //向左移动
-    goPro.click(function() {
-        index --;
-        if(index <= 0){
-            index =0;
-        }
-        $('.left .imgList').css('left',-90*index);
-    });
-
-
-    //数量添加和减少事件
-        var spa = $('.right li').eq(5).find('span')
-        spa.eq(2).click(function (){
-            var num = spa.eq(1).html();
-            num ++
-            spa.eq(1).html(num);
+        smallImgMove();
+        //右侧产品数量修改
+        changeNum();
+        //推荐商品左右移动
+        recoMove();
+        //添加成功页面关闭
+        $('.icon-shanchu').click(function() {
+            $('#sucess').removeClass('open');
         });
-        spa.eq(0).click(function (){
-            var num = spa.eq(1).html();
-            num --;
-            if(num <=1){
-                num = 1;
-                spa.eq(0).css('cursor',"not-allowed");
-            }
-            spa.eq(1).html(num);
-        })
 
-        //推荐商品左右移动功能
-        var recoGoNext = $('.recoList span').eq(1),
-            recoGoPro = $('.recoList span').eq(0),
-            index = 0;
-        recoGoNext.click(function (){
-            index ++;
-            if(index >= 5) index =5;
-            // console.log(index);
-            $('.recoListCon .imgList').css('left',-245*index);
-        });
-        recoGoPro.click(function (){
-            index --;
-            if(index <=0) index =0;
-            $('.recoListCon .imgList').css('left',-245*index);
-            // console.log('goPro');
+        //放大镜
+        manifer();
+
+        //选择颜色
+        $('.right .color').on('click','dd',function() {
+            $(this).parent().find('dd').removeClass('active');
+            $(this).addClass('active');
+            console.log('点击');
         });
 
     }
-
-
 
     //购物车添加功能
     function addShop(){
@@ -147,10 +104,23 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
 			})
         }
         sum();
+            //显示成功弹窗
+            $('#sucess').addClass('open');
+            //给弹窗添加一个滚轮事件
+           $(window).on('scroll resize',function() {
+               console.log('窗口改变');
+            var l = ($(window).outerWidth() - $(".shopBox").outerWidth())/2;
+            var t = ($(window).outerHeight() - $(".shopBox").outerHeight()) / 2 + $(window).scrollTop();
+
+            $(".shopBox").css({
+                left: l,
+                top: t
+            });
+           });
         });
     }
 
-
+    //计算购物车数量
     function sum(){
 		var cookieArr = JSON.parse($.cookie("goods"))
 		console.log(cookieArr)
@@ -161,8 +131,110 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
 			}
 		}
 		return sum
-	}
+    }
+    
+    //放大镜功能
+    function manifer(){
+        $('.bigImg').mouseenter(function() {
+            $('.msg').show();
+            $('.manifer').show();
+        }).mousemove(function(ev) {
+            var left = ev.clientX - $('.bigImg').offset().left - $('.msg').width()/2,
+                top = ev.clientY - $('.bigImg').offset().top - $('.msg').height()/2+$(window).scrollTop();
+            
+            if(left <= 0) left = 0;
+            if(top <= 0) top = 0;
+            if(left >= $('.bigImg').width() - $('.msg').width()) left = $('.bigImg').width() - $('.msg').width(); 
+            if(top >= $('.bigImg').width() - $('.msg').height()) top = $('.bigImg').width() - $('.msg').height()
+            $('.msg').css({
+                left:left,
+                top:top
+            });
+            $('.msg img').css({
+                left:-2.35*left,
+                top:-2.35*top
+            })
+        }).mouseleave(function() {
+            $('.msg').hide();
+            $('.manifer').hide();
+        });
+    }
 
+    //鼠标移入换图
+    function changeImg(){
+        $('.left .smallImg .imgList').on('mouseenter','li',function() {
+            $('.left .bigImg li').removeClass('active');
+            $('.left .bigImg li').eq($(this).index()).addClass('active');
+            $('.manifer img').removeClass('active');
+            $('.manifer img').eq($(this).index()).addClass('active');
+            $('.msg img').removeClass('active');
+            $('.msg img').eq($(this).index()).addClass('active');
+        });
+
+    }
+
+    //小图左右移动
+    function smallImgMove(){
+         //小图左右移动
+         var goNext = $('.smallImg span').eq(1),
+         goPro = $('.smallImg span').eq(0),
+         index = 0;
+         //向右移动
+     goNext.click(function (){
+         index ++;
+         if(index >= 1){
+             index = 1;
+         }
+         $('.left .imgList').css('left',-90*index);
+     });
+     //向左移动
+     goPro.click(function() {
+         index --;
+         if(index <= 0){
+             index =0;
+         }
+         $('.left .imgList').css('left',-90*index);
+     });
+    }
+    //添加和减少产品数量
+    function changeNum(){
+        //数量添加和减少事件
+        var spa = $('.right li').eq(5).find('span')
+        spa.eq(2).click(function (){
+            var num = spa.eq(1).html();
+            num ++
+            spa.eq(1).html(num);
+        });
+        spa.eq(0).click(function (){
+            var num = spa.eq(1).html();
+            num --;
+            if(num <=1){
+                num = 1;
+                spa.eq(0).css('cursor',"not-allowed");
+            }
+            spa.eq(1).html(num);
+        })
+    }
+
+    //推荐商品左右移动
+    function recoMove(){
+         //推荐商品左右移动功能
+         var recoGoNext = $('.recoList span').eq(1),
+         recoGoPro = $('.recoList span').eq(0),
+         index = 0;
+     recoGoNext.click(function (){
+         index ++;
+         if(index >= 5) index =5;
+         // console.log(index);
+         $('.recoListCon .imgList').css('left',-245*index);
+     });
+     recoGoPro.click(function (){
+         index --;
+         if(index <=0) index =0;
+         $('.recoListCon .imgList').css('left',-245*index);
+         // console.log('goPro');
+     });
+    }
     return{
         detailsContent:detailsContent,
         detailEvent:detailEvent,

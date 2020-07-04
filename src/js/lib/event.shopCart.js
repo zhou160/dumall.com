@@ -40,14 +40,13 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
         cookieSum();
         //数量添加按钮事件
         $('tbody').on('click','td .add',function() {
-            
-                // console.log(id);
             var input = $(this).parent().find('input'),
                 num = input.val();
                 num++;
                 input.val(num);
                 cookieNum($(this),num);
                 cookieSum();
+                sum ();
         });
 
         //数量减少按钮事件
@@ -62,6 +61,7 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
                 input.val(num);
                 cookieNum($(this),num);
                 cookieSum();
+                sum();
         });
 
         //删除按钮事件
@@ -78,13 +78,18 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
                     cookie.splice(index,1);
                 }
             });
+            console.log(cookie);
             $.cookie("goods",JSON.stringify(cookie),{
-				expires:7,
+				expires:1,
 				path:'/'
             })
-            location.reload();
+            // location.reload();
+            $(this).parent().parent().remove();
+            console.log(cookie.length);
+            if(!cookie.length) location.reload();
             sum();
             cookieSum();
+
         });
 
         //全选和取消全选
@@ -123,15 +128,12 @@ define(['titleHover','jquery','cookie'],function(titleHover,$) {
                     num ++;
                     sumNum += +$('tbody tr').eq(i).find('td').eq(3).find('input').val();
                     sumPrice += +$('tbody tr').eq(i).find('td').eq(4).find('span').html();
-                    // console.log(sumNum,sumPrice);
                 }
             }
-
             //将计算结果显示在页面中
             $('tfoot').find('td').eq(0).find('i').html(sumNum);
-            
             $('tfoot').find('td').eq(2).find('span').html(sumPrice.toFixed(2));
-
+            //计算单选按钮个数，如果等于cookie中数据长度则全选，否则取消全选
             if(num == cookie.length){
                 $('thead th').eq(0).find('i').addClass('active');
             }else{

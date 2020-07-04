@@ -15,9 +15,70 @@ header{
         dt{
             display: flex;
             justify-content: space-between;
-            width: 149px;
+            width: 180px;
             height: 56px;
             line-height: 56px;
+            >li{
+                display: block;
+                width: 75px;
+                text-align: center;
+                >dl{
+                    >dt{
+                        >i{
+                            position: absolute;
+                            top: 0px;
+                            right: 70px;
+                        }
+                    }
+                    &:hover{
+                        >dt{
+                            span{
+                                color: #EF4146;
+                            }
+                        }
+                    }
+                    >dd{
+                        display: none;
+                        border: 1px solid #ddd;
+                        // display: block;
+                        z-index: 3;
+                        background: white;
+                        width: 154px;
+                        height: 180px;
+                        position: absolute;
+                        right: 10px;
+                        text-align: center;
+                        >li{
+                            line-height: 30px;
+                            cursor:pointer;
+                            &:nth-child(1){
+                                width: 20px;
+                                height: 20px;
+                                position: absolute;
+                                background: white;
+                                border-top: 1px solid #ddd;
+                                border-left: 1px solid #ddd;
+                                transform: rotate(45deg);
+                                z-index: -1;
+                                left: 65px;
+                                top: -11px;
+                            }
+                            &:last-child{
+                                border-top: 1px solid #efefef;
+                            }
+                            &:hover{
+                                background: #FF5055;
+                                &:first-child{
+                                    background: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .active{
+                display: none;
+            }
         }
     }
     .topTitle{
@@ -35,7 +96,8 @@ header{
                     >li{
                         height: 64px;
                         line-height: 64px;
-                        font-size: 18px;
+                        font-size: 16px;
+                        margin: 0px 11px;
                         .indexlogo{
                             width: 185px;
                         }
@@ -71,18 +133,19 @@ header{
     
         // 下拉菜单
         .manuList{
-            // display: none;
+            display: none;
             background: white;
             position: absolute;
-            z-index: 999;
+            z-index: 10;
             width: 100%;
-            height: 186px;
+            height: 0px;
             padding: 7px 0px 20px 0px;
             >span{
                 font-size: 40px;
                 color: #ccc;
                 position: absolute;
                 top: 60px;
+                cursor:pointer;
                 &:nth-child(1){
                     left: 100px;
                 }
@@ -91,33 +154,40 @@ header{
                 }
             }
             .manu{
-                position: absolute;
-                // height: 186px;
-                display: flex;
+                position: relative;
                 justify-content: space-between;
                 width: 1000px;
-                // background: white;
-                left: 0;
-                right: 0;
+                left: 0px;
+                right: 186px;
+                height: 186px;
                 margin: auto;
-                >li{
-                    // margin-right: 75px;
-                    >a{
-                        display: block;
-                        // width: 200px;
-                        // background: white;
-                        margin-right: 75px;
-                        img{
-                            width: 140px;
-                            height: 140px;
+                overflow: hidden;
+                // border: 1px solid black;
+                >ul{
+                    // width: ;
+                    width: 2150;
+                    position: absolute;
+                    display: flex;
+                    >li{
+                        z-index: 11;
+                        // margin-right: 75px;
+                        >a{
+                            display: block;
+                            // width: 200px;
+                            // background: white;
+                            margin-right: 75px;
+                            img{
+                                width: 140px;
+                                height: 140px;
+                            }
+                            p{
+                                margin-top: 4px;
+                                text-align: center;
+                                &:nth-of-type(2){
+                                    color: #EF4146;
+                              }
+                           }
                         }
-                        p{
-                            margin-top: 4px;
-                            text-align: center;
-                            &:nth-of-type(2){
-                                color: #EF4146;
-                          }
-                    }
                     }
                 }
             }
@@ -220,6 +290,7 @@ footer{
 
 //右侧固定部位
 .rightFixed{
+    z-index: 2;
     position: fixed;
     top: 125px;
     right: 0;
@@ -240,13 +311,14 @@ footer{
             >span{
                 display: none;
                 padding: 10px 5px;
-                width: 54px;
+                width: 49px;
                 background: #EF4146;
                 height: 38px;
                 line-height: 38px;
                 text-align: center;
                 font-size: 12px;
                 right: -3px;
+                cursor: pointer;
                 // top: 1px;
                 // background: black;
                 position: absolute;
@@ -290,9 +362,16 @@ footer{
                     top: 64px;
                 }
             }
+            &:nth-child(4){
+                >a{
+                    i{
+                        font-size:22px !important;
+                    }
+                }
+            }
             &:nth-child(5){
                 >span{
-                    top: 240px;
+                    top: 241px;
                 }
             }
             &:nth-child(6){

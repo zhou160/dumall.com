@@ -3,10 +3,14 @@ require.config({
         require:'../js/require',
         jquery:'../js/jquery',
         index:'../js/lib/event.index',
-        titleHover:'../js/lib/event.title'
+        titleHover:'../js/lib/event.title',
+        // cookie:'../js/jquery.cookie'
+        cookie:'../js/cookie'
     },
     shim:{
-        require:['jquery']
+        require:['jquery'],
+        cookie:['jquery']
+        // cookie:['cookie']
     }
 });
 

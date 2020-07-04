@@ -4,7 +4,7 @@ require.config({
         jquery:'../js/jquery',
         details:'../js/lib/event.details',
         titleHover:'../js/lib/event.title',
-        cookie:'../js/jquery.cookie'
+        cookie:'../js/cookie'
     },
     shim:{
         require:['jquery'],
@@ -24,6 +24,7 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
         var pic = JSON.parse(data[0].pic),
             detail = JSON.parse(data[0].details),
             price = JSON.parse(data[0].price);
+            $('title').html(data[0].title);
                 left = `
                 <ul class="bigImg">
                     <li class="active">
@@ -66,6 +67,20 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
                     </div>
                 </div>
                 `
+                 //颜色拼接
+            var proColor = '';
+            for(i=0;i<detail.color.length;i++){
+                if(i == 0){
+                    proColor+= `
+                <dd class="active"><i class="iconfont icon-xuanze"></i>${detail.color[i]}</dd>
+            `
+                }else{
+                    proColor+= `
+                    <dd><i class="iconfont icon-xuanze"></i>${detail.color[i]}</dd>
+                `
+                }
+                
+            }
     
                 right = `
                 <li data-id="${data[0].id}">
@@ -104,9 +119,8 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
                     </dl>
                 </li>
                 <li>
-                    <dl>
-                        <dt>选择颜色</dt>
-                        <dd>黑色</dd>
+                    <dl class="color">
+                        <dt>选择颜色</dt>${proColor}
                     </dl>
                 </li>
                 <li>
@@ -124,9 +138,35 @@ require(['jquery','details','titleHover'],function ($,details,titleHover){
                     <span>立即购买</span>
                 </li>
                 `
+            var sucess = `
+            <div class="shopBox">
+            <p><i class="iconfont icon-shanchu"></i></p>
+            <div><i class="iconfont icon-chenggong1"></i></div>
+            <div>已添加至购物车，请尽快结算哦</div>
+            <dl>
+                <dt>
+                    <img src="${baseUrl}/src/${pic[0]}" alt="">
+                </dt>
+                <dd>
+                    <p><span>${data[0].title}</span><span>${detail.h1}</span></p>
+                    <span>￥${price.price[0]}</span>
+                </dd>
+            </dl>
+            <h1><a href="./shopCart.html">去购物车</a></h1>
+        </div>
+            `
+            $('.titleContent span').html(data[0].title);
+            $('.success').html(sucess);
             // });
-            $('.left').html(left);
+            $('.left').append(left);
             $('.right').html(right);
+            $('.msg').html(`
+                <img src="${baseUrl}/src/${pic[1]}" alt="" class="active">
+                <img src="${baseUrl}/src/${pic[2]}" alt="">
+                <img src="${baseUrl}/src/${pic[3]}" alt="">
+                <img src="${baseUrl}/src/${pic[4]}" alt="">
+                <img src="${baseUrl}/src/${pic[5]}" alt="">
+            `)
             // console.log(left);
             // console.log(right);
         titleHover.titleHover();//头部鼠标移入显示下拉列表

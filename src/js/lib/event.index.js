@@ -140,7 +140,6 @@ define(['jquery','titleHover'],function($,titleHover) {
             // console.log(content);
         });
     }
-    // function 
     return {
         banner:banner,
         evaluate:evaluate,
