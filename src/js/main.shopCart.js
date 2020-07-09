@@ -19,7 +19,7 @@ require(['shopCart', 'titleHover', 'jquery', 'cookie'], function(shopCart, title
     shopCart.shopCartContent();
     titleHover.topContent(); //头部产品渲染
     titleHover.titleHover(); //鼠标移入头部列表显示下拉菜单
-
+    titleHover.searchInp(); //用户搜索事件
     var cookieArr = JSON.parse($.cookie("goods")),
         idArr = []; //用于存放cookie中的id
     console.log(cookieArr);

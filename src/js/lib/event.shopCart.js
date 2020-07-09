@@ -14,15 +14,25 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
             data = JSON.parse(data);
             var shopCart = '';
             data.forEach(function(item) {
-
+                var price = JSON.parse(item.price).price,
+                    priceVal;
+                if (price.length == 2) {
+                    priceVal = `
+                    <span>￥${price[0]}</span>
+                    <span>￥${price[1]}</span>
+                    `
+                } else {
+                    priceVal = `
+                    <span>￥${price[0]}</span>
+                    `
+                }
                 shopCart += `
                 <li>
                <a href="./details.html?id=${item.id}">
                <img src="../${JSON.parse(item.pic)[0]}" alt="">
                <p>${item.title}</p>
                <p>
-                   <span>￥${JSON.parse(item.price).price[0]}</span>
-                   <span>￥${JSON.parse(item.price).price[1]}</span>
+                   ${priceVal}
                </p>
                </a>
             </li>

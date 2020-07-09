@@ -1,0 +1,194 @@
+@import "base";
+@import "mixin";
+body {
+    .title {
+        background: rgba(0, 0, 0, 0.02);
+        // background: red;
+        .titleContent {
+            @include main;
+            line-height: 40px;
+        }
+    }
+    .clas {
+        @include main;
+        padding-top: 30px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+        dl,
+        dd {
+            display: flex;
+        }
+        dl {
+            dt {
+                color: #A0A7B4;
+                line-height: 20px;
+                width: 70px;
+                margin-right: 8px;
+                text-align: left;
+            }
+            dd {
+                li {
+                    margin-bottom: 24px;
+                    width: 114px;
+                    margin-right: 24px;
+                    &:last-child {
+                        margin-left: 68px;
+                        color: #A0A7B4;
+                        margin-right: 0px;
+                        i {
+                            margin-left: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .searchContent {
+        @include main;
+        padding-top: 25px;
+        .searchTitle {
+            display: flex;
+            justify-content: space-between;
+            line-height: 20px;
+            >dt {
+                display: flex;
+                li {
+                    padding: 0px 24.5px;
+                    border-right: 1px solid #E1E1E1;
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+        .num {
+            color: red;
+        }
+        .searchNone {
+            display: none;
+            background: url(http://localhost/php-mysql/dumall.com/src/img/shopCartNull.png)no-repeat center;
+            background-size: 158px 138px;
+            padding-top: 220px;
+            h2 {
+                text-align: center;
+                span {
+                    color: red;
+                }
+            }
+            >h1 {
+                margin-top: 10px;
+                line-height: 33px;
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+        .contentInfo {
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 50px;
+            >li {
+                position: relative;
+                margin-top: 30px;
+                margin-right: 10px;
+                &:nth-child(5n) {
+                    margin-right: 0px;
+                }
+                >a {
+                    display: block;
+                    width: 230px;
+                    height: 330px;
+                    border: 1px solid #EEEEEE;
+                    >img {
+                        width: 230px;
+                    }
+                    >span {
+                        position: absolute;
+                        width: 92px;
+                        display: block;
+                        height: 15px;
+                        border: 1px solid #e3383d;
+                        top: 8px;
+                        right: 8px;
+                        border-radius: 8px;
+                        font-size: 12px;
+                        //    background: #e3383d;
+                        padding: 0px 4px;
+                        line-height: 15px;
+                        >i {
+                            color: #e3383d !important;
+                        }
+                    }
+                    >i {
+                        position: absolute;
+                        top: 220px;
+                        right: 154px;
+                        width: 60px;
+                        height: 15px;
+                        padding: 2px 8px;
+                        background: #A9B1C1;
+                        font-size: 12px;
+                        color: white;
+                        border-radius: 0px 8px 8px 0px;
+                    }
+                    .proInfo {
+                        >h1 {
+                            line-height: 20px;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            padding: 10px 10px 0px 10px;
+                            font-size: 18px;
+                            font-weight: 700;
+                        }
+                        >h2 {
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            font-size: 14px;
+                            padding: 4px 10px 0px 10px;
+                        }
+                        >h3 {
+                            padding: 15px 0px 12px 0px;
+                            span:nth-child(1) {
+                                color: #E3383D;
+                            }
+                            span:nth-child(2) {
+                                color: #999;
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                    >dl {
+                        display: none;
+                        width: 214px;
+                        height: 85px;
+                        padding: 8px;
+                        position: absolute;
+                        // bottom: -101px;
+                        // z-index: -1;
+                        bottom: 0px;
+                        background-image: linear-gradient(249deg, #E3383D 0%, #FF7579 100%);
+                        color: white;
+                        // &:hover{
+                        //     animation: eval 3s;
+                        // }
+                        >dt {
+                            width: 214px;
+                            height: 60px;
+                            // text-overflow: clip;
+                            // border: 1px solid black;
+                            display: -webkit-box;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                        }
+                        >dd {
+                            margin-top: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

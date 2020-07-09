@@ -109,7 +109,7 @@ define(['jquery', 'titleHover'], function($, titleHover) {
                     <span>￥${price.price[0]}</span>
                     `
                 }
-                console.log(proContent);
+                // console.log(proContent);
                 content += `
                 <li>
                 <a href="./details.html?id=${item.id}">

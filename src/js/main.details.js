@@ -18,7 +18,8 @@ require(['jquery', 'details', 'titleHover'], function($, details, titleHover) {
         right = ''; //用于拼接右侧信息字符串
     titleHover.topContent(); //加载头部数据
     details.detailsContent(), //加载推荐数据
-        baseUrl = 'http://localhost/php-mysql/dumall.com';
+        titleHover.searchInp(); //用户搜索事件
+    baseUrl = 'http://localhost/php-mysql/dumall.com';
     titleHover.getAjax(`../../interface/detailsInfo.php?id=${location.search.split("=")[1]}`).then(function(data) {
         data = JSON.parse(data);
         var pic = JSON.parse(data[0].pic),

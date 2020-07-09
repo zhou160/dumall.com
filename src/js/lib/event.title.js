@@ -151,18 +151,27 @@ define(['jquery', 'cookie'], function($) {
     //用户退出功能
     function loginOut() {
         $('.loginout').click(function() {
-            console.log('退出');
+            // console.log('退出');
             $.cookie('user', null, { path: '/' });
             // location.reload();
         });
     }
 
-
+    //用户搜索功能，搜索到结果后跳转到查询页面
+    function searchInp() {
+        $('.search').click(function() {
+            let searchVal = $(this).parent().find('input').val() ? $(this).parent().find('input').val() : '智能屏';
+            // console.log(searchVal);
+            console.log(`${baseUrl}/src/html/search.html?searchVal=${searchVal}`)
+            location.href = `${baseUrl}/src/html/search.html?searchVal=${searchVal}`
+        });
+    }
     return {
         titleHover: titleHover,
         rightFixed: rightFixed,
         getAjax: getAjax,
-        topContent: topContent
+        topContent: topContent,
+        searchInp: searchInp
     }
 
 });
