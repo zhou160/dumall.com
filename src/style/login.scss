@@ -1,34 +1,33 @@
 @import "base";
 @import "mixin";
-
-body{
+body {
     color: #363636;
-    header{
-        padding:0px 63px;
+    header {
+        padding: 0px 63px;
         // background-color: red;
         height: 110px;
         line-height: 110px;
         border: 1px solid #e1e1e1;
-        dl{
+        dl {
             display: flex;
             justify-content: space-between;
-            dd{
-                img{
+            dd {
+                img {
                     widows: 202px;
                     height: 26px;
                     margin-right: 10px;
                 }
-                span{
+                span {
                     font-size: 20px;
                     color: #363636;
                     vertical-align: middle;
                 }
             }
-            dt{
-                span{
+            dt {
+                span {
                     margin-right: 5px;
                 }
-                a{
+                a {
                     display: inline-block;
                     width: 60px;
                     height: 28px;
@@ -40,27 +39,26 @@ body{
             }
         }
     }
-    
-    section{
+    section {
         padding: 0px 63px;
         display: flex;
         justify-content: space-between;
-        .loginBack{
+        .loginBack {
             width: 510px;
             height: 352px;
             background: url('http://localhost/php-mysql/dumall.com/src/img/loginBcak.png');
             background-size: 100%;
             margin-top: 50px;
         }
-        .login{
+        .login {
             width: 352px;
             // height:405px;
             margin-top: 30px;
             border: 1px solid #dedede;
-            .loginTop{
+            .loginTop {
                 position: relative;
                 padding: 0px 28px;
-                p{
+                p {
                     width: 178px;
                     margin: 25px 0px 15px 0px;
                     height: 32px;
@@ -70,48 +68,48 @@ body{
                     background-color: red;
                     background: url('http://localhost/php-mysql/dumall.com/src/img/loginlogo.gif')no-repeat;
                 }
-                .inp{
+                .inp {
                     padding: 10px 8px;
                     width: 284px;
                     height: 20px;
                     font-size: 12px;
-                    color:#ccc;
-                    margin-top:15px;
+                    color: #ccc;
+                    margin-top: 15px;
                     border: none;
                     border: 1px solid #ccc;
                 }
-                i{
+                i {
                     color: red;
                     font-size: 12px;
                     position: absolute;
                 }
-                .inp1{
+                .inp1 {
                     margin-top: 15px;
                     margin-bottom: 10px;
                 }
-                .btn{
+                .btn {
                     width: 302px;
                     height: 40px;
                     background: #F04146;
                     line-height: 40px;
                     text-align: center;
                     color: white;
-                    font-weight:bold;
+                    font-weight: bold;
                     margin-bottom: 12px;
                     cursor: pointer;
                 }
-                span{
+                span {
                     display: block;
                     width: 302px;
                     display: flex;
                     justify-content: space-between;
-                    a{
+                    a {
                         color: #2e82ff;
-                        font-size:12px;
+                        font-size: 12px;
                     }
                 }
             }
-            .loginBot{
+            .loginBot {
                 margin-top: 40px;
                 background: #f0f6ff;
                 width: 296px;
@@ -120,32 +118,32 @@ body{
                 padding: 0px 28px;
                 display: flex;
                 justify-content: space-between;
-                dd{
-                    ul{
+                dd {
+                    ul {
                         display: flex;
                         justify-content: space-between;
                         width: 170px;
                         color: #2e82ff;
                         font-size: 14px;
-                        li{
+                        li {
                             cursor: pointer;
-                            i{
+                            i {
                                 font-size: 18px !important;
                             }
                         }
                     }
                 }
-                dt{
+                dt {
                     color: #2e82ff;
                     font-size: 14px;
                 }
             }
         }
     }
-    footer{
+    footer {
         background: #F9F9FA;
         position: relative;
-        div{
+        div {
             @include center;
             width: 395px;
             display: flex;
@@ -153,7 +151,7 @@ body{
             top: 33px;
             font-size: 12px;
         }
-        p{
+        p {
             @include center;
             width: 395px;
             font-size: 15px;
@@ -162,6 +160,4 @@ body{
             color: #A7A7A7;
         }
     }
-    
 }
-

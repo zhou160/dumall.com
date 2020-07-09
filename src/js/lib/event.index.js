@@ -1,18 +1,18 @@
-
 /**
  * 本模块是首页的功能模块
  */
-define(['jquery','titleHover'],function($,titleHover) {
+define(['jquery', 'titleHover'], function($, titleHover) {
     //定义
     // 首页轮播图
     var baseUrl = 'http://localhost/php-mysql/dumall.com';
-    function banner(){
+
+    function banner() {
         //鼠标点击小按钮进行切图
         $('.banner>ol>li').click(function() {
             $('.banner>ol>li').removeClass('active');
             $(this).addClass('active');
             // console.log($(this).index());
-            $('.banner>ul').css('left',-1600*$(this).index());
+            $('.banner>ul').css('left', -1600 * $(this).index());
         });
 
         //前进后退按钮
@@ -22,69 +22,69 @@ define(['jquery','titleHover'],function($,titleHover) {
         //前进按钮
         goNext.click(function() {
             // console.log('goNext');
-            bannerIndex ++;
-            if(bannerIndex >= 5){
-                bannerIndex =0;
+            bannerIndex++;
+            if (bannerIndex >= 5) {
+                bannerIndex = 0;
             }
             $('.banner>ol>li').removeClass('active');
             $('.banner>ol>li').eq(bannerIndex).addClass('active');
-            $('.banner>ul').css('left',-1600*bannerIndex);
+            $('.banner>ul').css('left', -1600 * bannerIndex);
         });
         //后退按钮
         goPro.click(function() {
             // console.log('goNext');
-            bannerIndex --;
-            if(bannerIndex < 0){
-                bannerIndex =4;
+            bannerIndex--;
+            if (bannerIndex < 0) {
+                bannerIndex = 4;
             }
             $('.banner>ol>li').removeClass('active');
             $('.banner>ol>li').eq(bannerIndex).addClass('active');
-            $('.banner>ul').css('left',-1600*bannerIndex);
+            $('.banner>ul').css('left', -1600 * bannerIndex);
         });
 
         //自动轮播
-        timer = setInterval(function (){
-			bannerIndex++;
-			if(bannerIndex >= 5){
-                bannerIndex =0;
+        timer = setInterval(function() {
+            bannerIndex++;
+            if (bannerIndex >= 5) {
+                bannerIndex = 0;
             }
             $('.banner>ol>li').removeClass('active');
             $('.banner>ol>li').eq(bannerIndex).addClass('active');
-            $('.banner>ul').css('left',-1600*bannerIndex);
-			
-        },1000);
-        
+            $('.banner>ul').css('left', -1600 * bannerIndex);
+
+        }, 1000);
+
         //鼠标移入停止轮播
         $('.banner').mouseenter(function() {
             clearInterval(timer);
         });
         //鼠标移出继续轮播
         $('.banner').mouseleave(function() {
-            timer = setInterval(function (){
+            timer = setInterval(function() {
                 bannerIndex++;
-                if(bannerIndex >= 5){
-                    bannerIndex =0;
+                if (bannerIndex >= 5) {
+                    bannerIndex = 0;
                 }
                 $('.banner>ol>li').removeClass('active');
                 $('.banner>ol>li').eq(bannerIndex).addClass('active');
-                $('.banner>ul').css('left',-1600*bannerIndex);
-                
-            },3000);
+                $('.banner>ul').css('left', -1600 * bannerIndex);
+
+            }, 3000);
         });
     }
 
     //产品列表区域鼠标移入显示评论
-    function evaluate(){
-        $('.contentInfo').on('mouseenter','li',function() {
+    function evaluate() {
+        $('.contentInfo').on('mouseenter', 'li', function() {
             $(this).find('dl').show();
-        }).on('mouseleave','li',function() {
+        }).on('mouseleave', 'li', function() {
             $(this).find('dl').hide();
         })
     }
 
     //首页信息渲染
-    function indexContent(){
-        titleHover.getAjax(`${baseUrl}/interface/selectProduct.php`).then(function(data){
+    function indexContent() {
+        titleHover.getAjax(`${baseUrl}/interface/selectProduct.php`).then(function(data) {
             data = JSON.parse(data);
             // console.log(data);
             var manu = '',
@@ -96,17 +96,20 @@ define(['jquery','titleHover'],function($,titleHover) {
                 eval;
             data.forEach(function(item) {
                 pic = JSON.parse(item.pic);
-                // console.log(item.price);
                 price = JSON.parse(item.price);
-                // console.log(price.price[0]);
                 details = JSON.parse(item.details);
-            //     manu += `
-            //     <li>
-            //     <img src="../${pic[0]}" alt="">
-            //     <p>${item.title}</p>
-            //     <p>￥${price.price[0]}</p>
-            // </li>
-            //     `
+                proContent = ''
+                if (price.price.length == 2) {
+                    proContent = `
+                    <span>￥${price.price[0]}</span>
+                    <span>￥${price.price[1]}</span>
+                    `
+                } else {
+                    proContent = `
+                    <span>￥${price.price[0]}</span>
+                    `
+                }
+                console.log(proContent);
                 content += `
                 <li>
                 <a href="./details.html?id=${item.id}">
@@ -117,8 +120,7 @@ define(['jquery','titleHover'],function($,titleHover) {
                         <h1>${item.title}（${details.color[0]}）</h1>
                         <h2>${details.h1}</h2>
                         <h3>
-                            <span>￥${price.price[0]}</span>
-                            <span>￥${price.price[1]}</span>
+                            ${proContent}
                         </h3>
                     </div>
                     <dl>
@@ -132,7 +134,7 @@ define(['jquery','titleHover'],function($,titleHover) {
                 `
             });
             // $('.manu').html(manu);
-            for(var i=0;i<2;i++){
+            for (var i = 0; i < 2; i++) {
                 content += content;
             }
             $('.contentInfo').html(content);
@@ -141,8 +143,8 @@ define(['jquery','titleHover'],function($,titleHover) {
         });
     }
     return {
-        banner:banner,
-        evaluate:evaluate,
-        indexContent,indexContent
+        banner: banner,
+        evaluate: evaluate,
+        indexContent: indexContent
     }
 });

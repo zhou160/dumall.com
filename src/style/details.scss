@@ -1,73 +1,72 @@
 @import "base";
 @import "mixin";
-
-body{
-    .title{
+body {
+    .title {
         background: rgba(0, 0, 0, 0.02);
         // background: red;
-        .titleContent{
+        .titleContent {
             @include main;
             line-height: 40px;
         }
     }
-    .details{
-        .detaContent{
+    .details {
+        .detaContent {
             @include main;
-            padding-top:40px; 
+            padding-top: 40px;
             flex-wrap: wrap;
             display: flex;
             justify-content: space-between;
-            .left{
+            .left {
                 margin-bottom: 24px;
                 position: relative;
-                .bigImg{
+                .bigImg {
                     width: 438px;
                     height: 438px;
                     border: 1px solid rgba(0, 0, 0, 0.05);
                     margin-bottom: 16px;
-                    >li{
+                    >li {
                         position: absolute;
                         width: 438px;
                         height: 438px;
                         opacity: 0;
                         z-index: -1;
-                        >img{
+                        >img {
                             width: 100%;
                         }
                     }
-                    .active{
+                    .active {
                         opacity: 1;
                         z-index: 0;
                         transition: 2s;
                     }
                 }
-                >h1{
+                >h1 {
                     width: 200px;
                     height: 200px;
                     position: absolute;
-                    background: rgba(240,240,250,0.8);
+                    background: rgba(240, 240, 250, 0.8);
                     // background: red;
                     display: none;
                     z-index: 1;
                     pointer-events: none;
                     overflow: hidden;
                     border-radius: 100%;
-                    img{
+                    img {
                         position: absolute;
                         opacity: 0;
                     }
-                    .active{
+                    .active {
                         opacity: 1;
                         z-index: 5;
                     }
                 }
-                .smallImg{
+                .smallImg {
                     position: relative;
                     height: 80px;
                     width: 360px;
                     // background: red;
                     margin-left: 40px;
-                    >span{
+                    >span {
                         display: block;
                         // background: red;
                         position: absolute;
@@ -80,30 +79,29 @@ body{
                         border-radius: 26px;
                         top: 40px;
                         cursor: pointer;
-                        &:nth-child(1){
+                        &:nth-child(1) {
                             left: -40px;
                         }
-                        &:nth-child(2){
+                        &:nth-child(2) {
                             right: -30px;
                         }
-    
                     }
-                    .imgListCon{
+                    .imgListCon {
                         position: relative;
                         overflow: hidden;
                         width: 360px;
                         height: 80px;
-                        .imgList{
+                        .imgList {
                             display: flex;
                             position: absolute;
                             justify-content: space-between;
-                            width:450px;
-                            >li{
-                                border:1px solid rgba(0, 0, 0, 0.05);
+                            // width:450px;
+                            >li {
+                                border: 1px solid rgba(0, 0, 0, 0.05);
                                 width: 78px;
                                 height: 78px;
                                 // margin-right: 10px;
-                                >img{
+                                >img {
                                     width: 100%
                                 }
                             }
@@ -111,75 +109,74 @@ body{
                     }
                 }
             }
-            .right{
+            .right {
                 width: 723px;
-                >li{
-                    span{
+                >li {
+                    span {
                         display: inline-block;
                     }
-                    &:nth-child(1){
+                    &:nth-child(1) {
                         display: flex;
                         justify-content: space-between;
-                        span{
+                        span {
                             line-height: 26px;
                             font-size: 20px;
                             font-weight: 700;
                         }
-                        span:nth-child(2){
+                        span:nth-child(2) {
                             color: #F04146;
-    
                         }
                     }
-                    &:nth-child(2){
+                    &:nth-child(2) {
                         line-height: 26px;
                         display: flex;
                         justify-content: space-between;
                         margin-bottom: 10px;
                     }
-                    &:nth-child(3){
+                    &:nth-child(3) {
                         line-height: 19px;
                         color: #F04146;
                         text-decoration: underline;
                         margin-bottom: 16px;
                     }
-                    &:nth-child(4){
-                     padding-top: 8px;
-                     background: url('http://localhost/php-mysql/dumall.com/src/img/detailsBack.jpg') no-repeat;
-                     height: 159px;   
-                     background-size: 100%;
-                     padding-left: 16px;
-                        >h1{
+                    &:nth-child(4) {
+                        padding-top: 8px;
+                        background: url('http://localhost/php-mysql/dumall.com/src/img/detailsBack.jpg') no-repeat;
+                        height: 159px;
+                        background-size: 100%;
+                        padding-left: 16px;
+                        >h1 {
                             padding-bottom: 20px;
-                            >span{
-                                &:nth-child(1){
+                            >span {
+                                &:nth-child(1) {
                                     color: #F04146;
                                     // font-size: 12px;
                                 }
-                                &:nth-child(2){
+                                &:nth-child(2) {
                                     color: #F04146;
                                     font-size: 28px;
                                     font-weight: 700;
                                 }
-                                &:nth-child(3){
+                                &:nth-child(3) {
                                     color: #ccc;
                                     text-decoration: line-through;
                                     // font-size: 12px;
                                 }
                             }
                         }
-                        >dl{
+                        >dl {
                             display: flex;
-                            >dt{
+                            >dt {
                                 width: 54px;
                                 color: #999;
                             }
-                            >dd{
-                                >dl{
+                            >dd {
+                                >dl {
                                     height: 18px;
                                     line-height: 18px;
                                     display: flex;
                                     margin-bottom: 9px;
-                                    >dt{
+                                    >dt {
                                         color: white;
                                         background: #EF4146;
                                         padding: 0 7px;
@@ -187,25 +184,25 @@ body{
                                     }
                                 }
                             }
-                            &:nth-child(1){
+                            &:nth-child(1) {
                                 margin-bottom: 8px;
                             }
-                            &:nth-child(2){
+                            &:nth-child(2) {
                                 margin-bottom: 20px;
                             }
                         }
                     }
-                    &:nth-child(5){
+                    &:nth-child(5) {
                         padding-top: 20px;
                         margin-bottom: 20px;
-                        >dl{
+                        >dl {
                             display: flex;
-                            >dt{
+                            >dt {
                                 margin-right: 24px;
                                 color: #999999;
                                 line-height: 44px;
                             }
-                            >dd{
+                            >dd {
                                 width: 78px;
                                 height: 36px;
                                 border: 1px solid #ccc;
@@ -216,11 +213,11 @@ body{
                                 margin-bottom: 8px;
                                 position: relative;
                                 cursor: pointer;
-                                &:hover{
+                                &:hover {
                                     border: 1px solid red;
                                     color: red;
                                 }
-                                >i{
+                                >i {
                                     display: none;
                                     position: absolute;
                                     color: #ccc;
@@ -229,42 +226,41 @@ body{
                                     right: -1px;
                                 }
                             }
-                            .active{
+                            .active {
                                 border: 1px solid red;
                                 color: red;
-                                >i{
+                                >i {
                                     display: inline-block;
                                     color: red;
                                 }
                             }
                         }
-    
                     }
-                    &:nth-child(6){
+                    &:nth-child(6) {
                         padding-bottom: 36px;
-                        >dl{
+                        >dl {
                             display: flex;
-                            >dt{
+                            >dt {
                                 line-height: 27px;
-                                color:#999999;
+                                color: #999999;
                                 margin-right: 24px;
                             }
-                            >dd{
-                                >span{
+                            >dd {
+                                >span {
                                     display: inline-block;
                                     height: 27px;
                                     line-height: 27px;
                                     text-align: center;
                                     border: 1px solid #E1E1E1;
-                                    &:nth-child(1){
+                                    &:nth-child(1) {
                                         width: 18px;
                                         cursor: pointer;
                                     }
-                                    &:nth-child(2){
+                                    &:nth-child(2) {
                                         width: 52px;
                                         margin-left: -5px;
                                     }
-                                    &:nth-child(3){
+                                    &:nth-child(3) {
                                         width: 20px;
                                         margin-left: -5px;
                                         cursor: pointer;
@@ -273,8 +269,8 @@ body{
                             }
                         }
                     }
-                    &:nth-child(7){
-                        >span{
+                    &:nth-child(7) {
+                        >span {
                             display: inline-block;
                             color: white;
                             width: 146px;
@@ -283,18 +279,18 @@ body{
                             line-height: 48px;
                             text-align: center;
                             border-radius: 5px;
-                            cursor:pointer;
-                            &:nth-child(1){
+                            cursor: pointer;
+                            &:nth-child(1) {
                                 background-image: linear-gradient(90deg, #FFBC79, #FF695C);
                             }
-                            &:nth-child(2){
+                            &:nth-child(2) {
                                 background-image: linear-gradient(90deg, #FF5055, #FF3030);
                             }
                         }
                     }
                 }
             }
-            .recoTitle{
+            .recoTitle {
                 height: 49px;
                 padding-left: 28px;
                 background: rgba(216, 216, 216, 0.1);
@@ -303,14 +299,14 @@ body{
                 // position: relative;
                 font-size: 20px;
             }
-            .recoList{
+            .recoList {
                 position: relative;
                 height: 211px;
                 margin-bottom: 20px;
                 width: 1130px;
                 // background: red;
                 margin-left: 40px;
-                >span{
+                >span {
                     display: block;
                     // background: red;
                     position: absolute;
@@ -323,49 +319,48 @@ body{
                     border-radius: 26px;
                     top: 40px;
                     cursor: pointer;
-                    &:nth-child(1){
+                    &:nth-child(1) {
                         left: -40px;
                     }
-                    &:nth-child(2){
+                    &:nth-child(2) {
                         right: -30px;
                     }
-    
                 }
-                .recoListCon{
+                .recoListCon {
                     width: 1130px;
                     overflow: hidden;
                     height: 211px;
                     // border: 1px solid red;
                     position: relative;
-                    .imgList{
+                    .imgList {
                         display: flex;
                         position: absolute;
                         width: 2355px;
                         justify-content: space-between;
-                        >li{
+                        >li {
                             width: 140px;
                             height: 140px;
                             margin-right: 10px;
-                           >a{
-                            >img{
-                                width: 140px;
+                            >a {
+                                >img {
+                                    width: 140px;
+                                }
+                                >p {
+                                    line-height: 19px;
+                                    margin: 8px 0;
+                                }
+                                >span {
+                                    color: red;
+                                }
                             }
-                            >p{
-                                line-height: 19px;
-                                margin: 8px 0;
-                            }
-                            >span{
-                                color: red;
-                            }
-                           }
                         }
                     }
-                    }   
                 }
-            .infoTitle{
+            }
+            .infoTitle {
                 width: 1206px;
                 background: rgba(216, 216, 216, 0.1);
-                >li{
+                >li {
                     height: 60px;
                     line-height: 60px;
                     width: 184px;
@@ -374,37 +369,36 @@ body{
                     text-align: center;
                     cursor: pointer;
                 }
-                .active{
-                    color:red;
+                .active {
+                    color: red;
                 }
             }
-            
-            .infoImg{
+            .infoImg {
                 display: none;
-                >li{
-                    width:1208px;
-                    >img{
+                >li {
+                    width: 1208px;
+                    >img {
                         width: 100%;
                     }
                 }
             }
-            .proPram{
+            .proPram {
                 display: none;
-                img{
-                   width: 1208px; 
-                }
-            }
-            .shopAfter{
-                display: none;
-                img{
+                img {
                     width: 1208px;
                 }
             }
-            .show{
+            .shopAfter {
+                display: none;
+                img {
+                    width: 1208px;
+                }
+            }
+            .show {
                 display: block;
             }
         }
-        .proServer{
+        .proServer {
             display: none;
             position: absolute;
             top: 0px;
@@ -416,14 +410,14 @@ body{
             width: 1208px;
             padding: 0px 74px;
             top: 800px;
-            >dd{
+            >dd {
                 display: flex;
                 width: 790px;
-                >li{
+                >li {
                     width: 158px;
                     text-align: center;
-                    &:last-child{
-                        >span{
+                    &:last-child {
+                        >span {
                             display: block;
                             height: 48px;
                             width: 158px;
@@ -437,23 +431,22 @@ body{
                         }
                     }
                 }
-                .active{
+                .active {
                     color: red;
                 }
             }
         }
     }
-    
-    .success{
+    .success {
         display: none;
-        background:rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
         width: 100%;
         height: 16714px;
         z-index: 999;
         position: absolute;
         top: 0px;
         left: 0px;
-        .shopBox{
+        .shopBox {
             width: 506px;
             height: 391px;
             background: white;
@@ -465,58 +458,58 @@ body{
             // right: 0;
             // bottom: 0;
             // margin: auto;
-            >p{
+            >p {
                 height: 57px;
                 text-align: right;
-                line-height:40px;
+                line-height: 40px;
                 padding-right: 30px;
-                >i{
+                >i {
                     font-size: 16px !important;
                     cursor: pointer;
                 }
             }
-            >div{
-                &:nth-of-type(1){
+            >div {
+                &:nth-of-type(1) {
                     height: 52px;
                     text-align: center;
                     color: skyblue;
-                    >i{
+                    >i {
                         font-size: 52px !important;
                     }
                 }
-                &:nth-of-type(2){
+                &:nth-of-type(2) {
                     line-height: 21px;
                     padding: 11px 0px 39px 0px;
                     font-size: 20px;
                     text-align: center;
                 }
             }
-            >dl{
+            >dl {
                 padding: 0px 20px;
                 display: flex;
                 margin-bottom: 31px;
-                img{
+                img {
                     width: 98px;
                     border: 1px solid #F6F6F6;
                 }
-                >dd{
+                >dd {
                     margin-left: 10px;
-                    >P{
+                    >P {
                         line-height: 21px;
                         color: #363636;
-                        span:nth-child(1){
+                        span:nth-child(1) {
                             font-size: 14px;
                             margin-right: 5px;
                         }
                     }
-                    >span{
+                    >span {
                         line-height: 21px;
                         color: red;
                     }
                 }
             }
-            h1{
-                >a{
+            h1 {
+                >a {
                     display: block;
                     width: 146px;
                     height: 48px;
@@ -530,8 +523,8 @@ body{
             }
         }
     }
-    .open{
-        .success{
+    .open {
+        .success {
             display: block;
         }
     }

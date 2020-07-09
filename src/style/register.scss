@@ -1,24 +1,24 @@
 @import "base";
 @import "mixin";
-body,html{
+body,
+html {
     height: 100%;
 }
 
-body{
+body {
     background: url('http://localhost/php-mysql/dumall.com/src/img/register-bg.jpg');
-    background-size:100%;
+    background-size: 100%;
     position: relative;
     height: 100%;
-    .logo{
+    .logo {
         width: 125px;
         height: 40px;
         position: fixed;
         top: 60px;
         left: 70px;
     }
-
     // 注册框样式
-    .register{
+    .register {
         width: 480px;
         position: absolute;
         top: 0;
@@ -26,31 +26,31 @@ body{
         margin: auto;
         height: 554px;
         right: 139px;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255, 255, 255, 0.9);
         border-radius: 12px;
         // height: 500px;
-        li{
-            .tip{
-                background: rgba(0,0,0,0.5);
+        li {
+            .tip {
+                background: rgba(0, 0, 0, 0.5);
                 padding: 10px 0px 10px 10px;
                 width: 317px;
                 font-size: 12px;
                 border-radius: 5px;
                 color: white;
                 position: absolute;
-                b{
+                b {
                     font-size: 12px;
                     display: block;
                 }
-                h6{
+                h6 {
                     width: 0px;
                     height: 0px;
-                    border:5px solid transparent;
-                    border-top-color: rgba(0,0,0,0.5);
+                    border: 5px solid transparent;
+                    border-top-color: rgba(0, 0, 0, 0.5);
                     position: absolute;
                 }
             }
-            span{
+            span {
                 display: inline-block;
                 width: 80px;
                 height: 40px;
@@ -60,7 +60,7 @@ body{
                 font-weight: bold;
                 line-height: 40px;
             }
-            input{
+            input {
                 width: 321px;
                 height: 16px;
                 padding: 11px 10px;
@@ -69,33 +69,33 @@ body{
                 border-radius: 4px;
                 border: 1px solid #E0E0E0;
             }
-            &:nth-child(1){
+            &:nth-child(1) {
                 margin: 30px 0px 0px 39px;
-                h1{
+                h1 {
                     font-size: 36px;
                     padding: 4px;
                 }
-                p{
+                p {
                     font-size: 14px;
                     color: #9B9B9B;
-                    a{
-                        color:#2e58ff;
+                    a {
+                        color: #2e58ff;
                         font-weight: bold;
                     }
                 }
                 margin-bottom: 40px;
             }
-            &:nth-child(2){
+            &:nth-child(2) {
                 position: relative;
-                >div{
+                >div {
                     top: -45px;
                     left: 100px;
-                    h6{
+                    h6 {
                         top: 36px;
                         left: 26px;
                     }
                 }
-                >i{
+                >i {
                     position: absolute;
                     color: red;
                     top: 47px;
@@ -103,23 +103,25 @@ body{
                     font-size: 12px;
                 }
             }
-            .hid{
+            .hid {
                 display: none;
             }
-            &:nth-child(4){
-                >div{
+            &:nth-child(4) {
+                >div {
                     top: -80px;
                     left: 100px;
-                    h6{
+                    h6 {
                         top: 68px;
                         right: 26px;
                     }
                 }
             }
-            &:nth-child(2),&:nth-child(3),&:nth-child(4){
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4) {
                 position: relative;
                 margin-bottom: 32px;
-                i{
+                i {
                     position: absolute;
                     color: red;
                     top: 47px;
@@ -127,36 +129,35 @@ body{
                     font-size: 12px;
                 }
             }
-            &:nth-child(5){
+            &:nth-child(5) {
                 position: relative;
-                i{
+                i {
                     position: absolute;
                     color: red;
                     top: 47px;
                     left: 97px;
                     font-size: 12px;
                 }
-                input:nth-of-type(1){
+                input:nth-of-type(1) {
                     width: 184px;
                     margin-right: 9px;
                 }
-                input:nth-of-type(2){
+                input:nth-of-type(2) {
                     width: 124px;
                     height: 38px;
                     padding: 0;
                     background: white;
-                    &:hover{
+                    &:hover {
                         color: #2e58ff;
                         border-color: #2e58ff;
                     }
                 }
-               
             }
-            &:nth-child(6){
+            &:nth-child(6) {
                 width: 399px;
                 height: 50px;
                 margin-bottom: 15px;
-                p{
+                p {
                     background: #bdcefc;
                     border-radius: 25px;
                     color: white;
@@ -171,94 +172,88 @@ body{
                     width: 400px;
                 }
             }
-            &:nth-child(7){
+            &:nth-child(7) {
                 margin: 0px 0px 32px 41px;
-                input{
+                input {
                     display: inline-block;
                     width: 13px;
                     height: 13px;
                 }
-                a{
+                a {
                     color: #2e58ff;
                 }
             }
         }
     }
-
-
     // 标语处样式
-    .slogin{
+    .slogin {
         position: fixed;
         top: 314px;
         left: 195px;
         color: white;
-        h1{
+        h1 {
             font-size: 54px;
             font-weight: bold;
         }
-        h2{
+        h2 {
             font-size: 32px;
         }
     }
-
-
-    footer{
+    footer {
         position: fixed;
         bottom: 57px;
         color: white;
         left: 70px;
         width: 210px;
-        ul{
+        ul {
             display: flex;
             justify-content: space-between;
-            li{
-                a{
+            li {
+                a {
                     color: white;
                 }
-                i{
+                i {
                     color: white !important;
                 }
-                &:nth-child(1){
+                &:nth-child(1) {
                     opacity: 0.8;
                 }
-                &:nth-child(2){
+                &:nth-child(2) {
                     opacity: 0.78;
                 }
-                &:nth-child(3){
+                &:nth-child(3) {
                     opacity: 0.5;
                 }
-                &:nth-child(4){
+                &:nth-child(4) {
                     opacity: 0.54;
                 }
-                &:hover{
+                &:hover {
                     opacity: 1;
                 }
             }
         }
     }
-
-
-    .login{
+    .login {
         // position: relative;
-        .smectite{
+        .smectite {
             display: none;
             width: 100%;
             height: 100%;
             // background: rgba(0,0,0);
-            background: rgba(0,0,0,.3);
+            background: rgba(0, 0, 0, .3);
             // opacity: .3;
             z-index: 20;
             position: absolute;
-            .loginBox{
+            .loginBox {
                 width: 393px;
                 height: 461px;
                 background: white;
                 opacity: 1;
                 position: absolute;
-                top:60px;
-                left:500px;
+                top: 60px;
+                left: 500px;
                 cursor: move;
-                .title{
+                .title {
                     background: url('http://localhost/php-mysql/dumall.com/src/img/register-logo.png')no-repeat 14px 10px;
                     background-size: 7%;
                     font-size: 18px;
@@ -268,69 +263,70 @@ body{
                     height: 18px;
                     text-indent: 50px;
                     position: relative;
-                    i{
+                    i {
                         position: absolute;
                         right: 20px;
                         font-size: 16px;
                         cursor: pointer;
                     }
                 }
-                .loginPhone{
+                .loginPhone {
                     display: block;
-                    .content{
+                    .content {
                         margin-top: 24px;
                         padding: 0px 20px;
                         padding-bottom: 50px;
                         border-bottom: 1px solid #eee;
-                        li{
+                        li {
                             position: relative;
-                            b{
+                            b {
                                 color: red;
                                 font-size: 12px;
                                 position: absolute;
                                 top: 38px;
                                 left: 0px;
                             }
-                            &:nth-child(1){
+                            &:nth-child(1) {
                                 height: 19px;
                                 margin-bottom: 10px;
                                 text-align: right;
                                 cursor: pointer;
-                                i{
-                                    color: rgb(27,102,199);
+                                i {
+                                    color: rgb(27, 102, 199);
                                 }
-                                &:hover span{
-                                    color: rgb(27,102,199);
-                                    text-decoration:underline;
+                                &:hover span {
+                                    color: rgb(27, 102, 199);
+                                    text-decoration: underline;
                                 }
                             }
-                            &:nth-child(2),&:nth-child(3){
-                               padding-left: 24px;
+                            &:nth-child(2),
+                            &:nth-child(3) {
+                                padding-left: 24px;
                                 border: 1px solid #ddd;
                                 margin-bottom: 15px;
                                 font-size: 14px;
-                                i{
+                                i {
                                     // font-size: 14px;
                                     color: #ccc !important;
                                 }
-                                input{
+                                input {
                                     border: none;
                                     padding: 12px 10px 12px 14px;
                                     outline: none;
                                 }
                             }
-                            &:nth-child(4){
+                            &:nth-child(4) {
                                 display: flex;
                                 justify-content: space-between;
                                 margin-bottom: 15px;
-                                a{
-                                    color: rgb(27,102,199);
-                                    &:hover{
+                                a {
+                                    color: rgb(27, 102, 199);
+                                    &:hover {
                                         text-decoration: underline;
                                     }
                                 }
                             }
-                            &:nth-child(5){
+                            &:nth-child(5) {
                                 background: #de0909;
                                 color: white;
                                 font-weight: bold;
@@ -339,36 +335,37 @@ body{
                                 line-height: 48px;
                                 margin-bottom: 15px;
                             }
-                            &:nth-child(6){
+                            &:nth-child(6) {
                                 text-align: right;
                                 color: #2e7fdb;
                                 font-size: 12px;
                             }
                         }
                     }
-                    .loginFot{
+                    .loginFot {
                         // display: none;
                         padding: 15px 0px 15px 20px;
                         position: relative;
-                        >dt{
+                        >dt {
                             line-height: 18px;
                             font-size: 12px;
                         }
-                        >dd{
+                        >dd {
                             margin-top: 15px;
                             .icon {
-                                width: 1em; height: 1em;
+                                width: 1em;
+                                height: 1em;
                                 vertical-align: -0.15em;
                                 fill: currentColor;
                                 overflow: hidden;
                                 font-size: 24px;
-                             }
-                            a{
+                            }
+                            a {
                                 display: inline-block;
                                 width: 40px;
                             }
                         }
-                        .spa1{
+                        .spa1 {
                             background: url(https://passport.baidu.com/passApi/img/pass_login_icons.png);
                             display: block;
                             height: 44px;
@@ -381,59 +378,58 @@ body{
                         }
                     }
                 }
-                .loginQR{
+                .loginQR {
                     display: block;
                     padding: 0px 20px;
                     text-align: center;
                     position: relative;
                     height: 413px;
-                    li{
-                        &:nth-child(1){
+                    li {
+                        &:nth-child(1) {
                             padding-top: 40px;
                             font-size: 16px;
                             line-height: 36px;
                             margin-bottom: 35px;
                             font-weight: bold;
-                            span{
+                            span {
                                 font-size: 17px;
                                 color: #3488ff;
                             }
-
                         }
-                        &:nth-child(2){
-                            margin:0px 98.5px;
+                        &:nth-child(2) {
+                            margin: 0px 98.5px;
                             padding: 9px;
                             // border: 1px solid black;
                             position: relative;
-                            img{
+                            img {
                                 width: 138px;
                                 height: 138px;
                             }
-                            span{
+                            span {
                                 display: block;
                                 width: 20px;
                                 height: 20px;
                                 border: 1px solid transparent;
                                 position: absolute;
-                                &:nth-child(1){
+                                &:nth-child(1) {
                                     top: 9px;
                                     left: 9px;
                                     border-top-color: #e1e2e4;
                                     border-left-color: #e1e2e4;
                                 }
-                                &:nth-child(2){
+                                &:nth-child(2) {
                                     top: 9px;
                                     right: 9px;
                                     border-top-color: #e1e2e4;
                                     border-right-color: #e1e2e4;
                                 }
-                                &:nth-child(3){
+                                &:nth-child(3) {
                                     bottom: 9px;
                                     left: 9px;
                                     border-bottom-color: #e1e2e4;
                                     border-left-color: #e1e2e4;
                                 }
-                                &:nth-child(4){
+                                &:nth-child(4) {
                                     bottom: 9px;
                                     right: 9px;
                                     border-right-color: #e1e2e4;
@@ -441,11 +437,11 @@ body{
                                 }
                             }
                         }
-                        &:nth-child(3){
+                        &:nth-child(3) {
                             margin-top: 20px;
                             font-size: 12px;
                         }
-                        .spa2{
+                        .spa2 {
                             // display: block;
                             background: url(https://passport.baidu.com/passApi/img/pass_login_icons.png);
                             background-position: 0 -86px;
@@ -457,14 +453,14 @@ body{
                         }
                     }
                 }
-                .loginMethod{
+                .loginMethod {
                     display: none;
                 }
             }
         }
     }
-    .regis{
-        .smectite{
+    .regis {
+        .smectite {
             display: block;
         }
     }

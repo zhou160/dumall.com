@@ -1,51 +1,51 @@
 require.config({
-    paths:{
-        require:'../js/require',
-        jquery:'../js/jquery',
-        shopCart:'../js/lib/event.shopCart',
-        titleHover:'../js/lib/event.title',
-        cookie:'../js/cookie'
+    paths: {
+        require: '../js/require',
+        jquery: '../js/jquery',
+        shopCart: '../js/lib/event.shopCart',
+        titleHover: '../js/lib/event.title',
+        cookie: '../js/cookie'
     },
-    shim:{
-        require:['jquery'],
-        cookie:['jquery']
+    shim: {
+        require: ['jquery'],
+        cookie: ['jquery']
     }
 });
 
 
-require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHover,$){
+require(['shopCart', 'titleHover', 'jquery', 'cookie'], function(shopCart, titleHover, $) {
     var baseUrl = 'http://localhost/php-mysql/dumall.com';
     //在这里进行购物车信息渲染
     shopCart.shopCartContent();
-    titleHover.topContent();//头部产品渲染
-    titleHover.titleHover();//鼠标移入头部列表显示下拉菜单
+    titleHover.topContent(); //头部产品渲染
+    titleHover.titleHover(); //鼠标移入头部列表显示下拉菜单
 
     var cookieArr = JSON.parse($.cookie("goods")),
-        idArr = [];//用于存放cookie中的id
-        console.log(cookieArr);
-        //判断购物车中是否有内容，如果没有内容显示提示，如果有内容则渲染购物车
-            if(cookieArr){
-                if(cookieArr.length){
-                    console.log('有数据');
-                    $('body>div').removeClass('shop');
-                    cookieArr.forEach(function (item){
-                        idArr.push(item.id);
-                    });
-                    titleHover.getAjax(`${baseUrl}/interface/shopCart.php?idlist=${idArr}`).then(function (data){
-                        data = JSON.parse(data);
-                        var shopcart = '';
-                        data.forEach(function (item){
-                            var pic = JSON.parse(item.pic),
-                                detail = JSON.parse(item.details),
-                                price = JSON.parse(item.price),
-                                num = 0;
-                                for(var i=0;i<cookieArr.length;i++){
-                                    if(item.id == cookieArr[i].id){
-                                        num = cookieArr[i].num;
-                                    }
-                                }      
-                                // console.log(num);       
-                            shopcart += `
+        idArr = []; //用于存放cookie中的id
+    console.log(cookieArr);
+    //判断购物车中是否有内容，如果没有内容显示提示，如果有内容则渲染购物车
+    if (cookieArr) {
+        if (cookieArr.length) {
+            console.log('有数据');
+            $('body>div').removeClass('shop');
+            cookieArr.forEach(function(item) {
+                idArr.push(item.id);
+            });
+            titleHover.getAjax(`${baseUrl}/interface/shopCart.php?idlist=${idArr}`).then(function(data) {
+                data = JSON.parse(data);
+                var shopcart = '';
+                data.forEach(function(item) {
+                    var pic = JSON.parse(item.pic),
+                        detail = JSON.parse(item.details),
+                        price = JSON.parse(item.price),
+                        num = 0;
+                    for (var i = 0; i < cookieArr.length; i++) {
+                        if (item.id == cookieArr[i].id) {
+                            num = cookieArr[i].num;
+                        }
+                    }
+                    // console.log(num);       
+                    shopcart += `
                             <tr data-id="${item.id}">
                             <td>
                                 <span class="check">
@@ -72,17 +72,16 @@ require(['shopCart','titleHover','jquery','cookie'],function (shopCart,titleHove
                             <td><span class="del">删除</span></td>
                         </tr>
                             `
-                        });
-                        $('tbody').html(shopcart);
-                        shopCart.shopCartEvent();//控制购物车列表中的事件操作
-                    });
-                }else{
-                    $('body>div').addClass('shop');
-                }
-            }
-            else{
-            console.log('没有数据');
+                });
+                $('tbody').html(shopcart);
+                shopCart.shopCartEvent(); //控制购物车列表中的事件操作
+            });
+        } else {
             $('body>div').addClass('shop');
         }
-    
+    } else {
+        console.log('没有数据');
+        $('body>div').addClass('shop');
+    }
+
 });

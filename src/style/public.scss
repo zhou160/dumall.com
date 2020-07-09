@@ -1,43 +1,43 @@
-header{
+header {
     // padding: 20px 0px;
-    >dl{
+    >dl {
         display: flex;
         justify-content: space-between;
         background: #F6F9FB;
         padding: 0px 74.5px;
-        dd{
+        dd {
             display: flex;
             justify-content: space-between;
             width: 517px;
             height: 40px;
             line-height: 40px;
         }
-        dt{
+        dt {
             display: flex;
             justify-content: space-between;
             width: 180px;
             height: 56px;
             line-height: 56px;
-            >li{
+            >li {
                 display: block;
                 width: 75px;
                 text-align: center;
-                >dl{
-                    >dt{
-                        >i{
+                >dl {
+                    >dt {
+                        >i {
                             position: absolute;
                             top: 0px;
                             right: 70px;
                         }
                     }
-                    &:hover{
-                        >dt{
-                            span{
+                    &:hover {
+                        >dt {
+                            span {
                                 color: #EF4146;
                             }
                         }
                     }
-                    >dd{
+                    >dd {
                         display: none;
                         border: 1px solid #ddd;
                         // display: block;
@@ -48,10 +48,10 @@ header{
                         position: absolute;
                         right: 10px;
                         text-align: center;
-                        >li{
+                        >li {
                             line-height: 30px;
-                            cursor:pointer;
-                            &:nth-child(1){
+                            cursor: pointer;
+                            &:nth-child(1) {
                                 width: 20px;
                                 height: 20px;
                                 position: absolute;
@@ -63,12 +63,12 @@ header{
                                 left: 65px;
                                 top: -11px;
                             }
-                            &:last-child{
+                            &:last-child {
                                 border-top: 1px solid #efefef;
                             }
-                            &:hover{
+                            &:hover {
                                 background: #FF5055;
-                                &:first-child{
+                                &:first-child {
                                     background: white;
                                 }
                             }
@@ -76,45 +76,45 @@ header{
                     }
                 }
             }
-            .active{
+            .active {
                 display: none;
             }
         }
     }
-    .topTitle{
-        .list{
+    .topTitle {
+        .list {
             // background: red;
             height: 64px;
             margin: 0px 74.5px;
-            >dl{
+            >dl {
                 display: flex;
                 justify-content: space-between;
-                >dt{
+                >dt {
                     width: 556px;
                     display: flex;
                     justify-content: space-between;
-                    >li{
+                    >li {
                         height: 64px;
                         line-height: 64px;
                         font-size: 16px;
                         margin: 0px 11px;
-                        .indexlogo{
+                        .indexlogo {
                             width: 185px;
                         }
                     }
                 }
-                >dd{
+                >dd {
                     width: 300px;
                     height: 64px;
                     line-height: 64px;
-                    >input{
+                    >input {
                         width: 216px;
                         padding: 10px 16px;
                         border: none;
                         border: 1px solid #ccc;
                         border-radius: 5px 0px 0px 5px;
                     }
-                    >span{
+                    >span {
                         display: inline-block;
                         height: 35px;
                         width: 44px;
@@ -127,12 +127,10 @@ header{
                         text-align: center;
                     }
                 }
-               
             }
         }
-    
         // 下拉菜单
-        .manuList{
+        .manuList {
             display: none;
             background: white;
             position: absolute;
@@ -140,20 +138,20 @@ header{
             width: 100%;
             height: 0px;
             padding: 7px 0px 20px 0px;
-            >span{
+            >span {
                 font-size: 40px;
                 color: #ccc;
                 position: absolute;
                 top: 60px;
-                cursor:pointer;
-                &:nth-child(1){
+                cursor: pointer;
+                &:nth-child(1) {
                     left: 100px;
                 }
-                &:nth-child(2){
+                &:nth-child(2) {
                     right: 100px;
                 }
             }
-            .manu{
+            .manu {
                 position: relative;
                 justify-content: space-between;
                 width: 1000px;
@@ -163,30 +161,30 @@ header{
                 margin: auto;
                 overflow: hidden;
                 // border: 1px solid black;
-                >ul{
+                >ul {
                     // width: ;
                     width: 2150;
                     position: absolute;
                     display: flex;
-                    >li{
+                    >li {
                         z-index: 11;
                         // margin-right: 75px;
-                        >a{
+                        >a {
                             display: block;
                             // width: 200px;
                             // background: white;
                             margin-right: 75px;
-                            img{
+                            img {
                                 width: 140px;
                                 height: 140px;
                             }
-                            p{
+                            p {
                                 margin-top: 4px;
                                 text-align: center;
-                                &:nth-of-type(2){
+                                &:nth-of-type(2) {
                                     color: #EF4146;
-                              }
-                           }
+                                }
+                            }
                         }
                     }
                 }
@@ -195,48 +193,47 @@ header{
     }
 }
 
-
 // 底部
-footer{
+footer {
     background: #F9F9FA;
-    >ul{
+    >ul {
         margin: 0px 70.5px;
-        >li{
-            &:nth-child(1){
+        >li {
+            &:nth-child(1) {
                 display: flex;
                 justify-content: space-between;
                 padding: 30px 0px 20px 0px;
-                >P{
+                >P {
                     width: 620px;
                     height: 20px;
                     display: flex;
                     justify-content: space-between;
                 }
-                >dl{
+                >dl {
                     width: 343px;
                     height: 55px;
                     display: flex;
                     justify-content: space-between;
-                    >dt{
+                    >dt {
                         text-align: center;
                         display: inline-block;
                         width: 126px;
                         height: 34px;
-                        border-radius:17px;
+                        border-radius: 17px;
                         border: 1px solid black;
-                        line-height: 34px; 
-                        >i{
+                        line-height: 34px;
+                        >i {
                             font-size: 18px;
                         }
                     }
-                    >dd{
-                        >span{
+                    >dd {
+                        >span {
                             display: block;
-                            &:nth-child(1){
+                            &:nth-child(1) {
                                 font-size: 28px;
                                 line-height: 32px;
                             }
-                            &:nth-child(2){
+                            &:nth-child(2) {
                                 margin-top: 6px;
                                 line-height: 17px;
                                 text-align: right;
@@ -246,38 +243,38 @@ footer{
                     }
                 }
             }
-            &:nth-child(2){
+            &:nth-child(2) {
                 text-align: right;
-                p{
-                    &:nth-child(1){
-                        font-size:20px;
-                        font-weight: 700; 
+                p {
+                    &:nth-child(1) {
+                        font-size: 20px;
+                        font-weight: 700;
                         line-height: 22px;
                     }
-                    &:nth-child(2){
+                    &:nth-child(2) {
                         margin-top: 6px;
                         line-height: 17px;
-                        color:#A7A7A7;
+                        color: #A7A7A7;
                     }
                 }
             }
-            &:nth-child(3){
+            &:nth-child(3) {
                 padding: 10px 0px;
                 background: #FCFCFD;
                 color: #B0B0B0;
                 line-height: 20px;
-                >dl{
+                >dl {
                     display: flex;
                     justify-content: space-between;
-                    >dt{
+                    >dt {
                         display: flex;
                         justify-content: space-between;
                         width: 197px;
-                        i{
+                        i {
                             font-size: 20px !important;
                         }
-                        >li:nth-child(4){
-                            img{
+                        >li:nth-child(4) {
+                            img {
                                 height: 20px;
                             }
                         }
@@ -289,26 +286,26 @@ footer{
 }
 
 //右侧固定部位
-.rightFixed{
+.rightFixed {
     z-index: 2;
     position: fixed;
     top: 125px;
     right: 0;
     width: 56px;
     height: 300px;
-    >ul{
-        >li{
+    >ul {
+        >li {
             width: 54px;
             height: 58px;
             border: 1px solid #efefef;
             background: rgba(255, 255, 255, 0.8);
             text-align: center;
             line-height: 58px;
-            >i{
+            >i {
                 font-size: 24px !important;
                 color: #363636 !important;
             }
-            >span{
+            >span {
                 display: none;
                 padding: 10px 5px;
                 width: 49px;
@@ -323,13 +320,13 @@ footer{
                 // background: black;
                 position: absolute;
                 color: white;
-                >i{
+                >i {
                     display: block;
                     line-height: 16px;
                 }
             }
-            >b{
-                display:block;
+            >b {
+                display: block;
                 border: 1px solid #efefef;
                 width: 111px;
                 // height: 120px;
@@ -338,49 +335,46 @@ footer{
                 background: white;
                 top: 0px;
                 display: none;
-                >img{
+                >img {
                     margin-top: 10px;
                     width: 80px;
                     height: 80px;
                 }
-                >i{
+                >i {
                     // margin-top: -10px;
                     display: block;
                     font-size: 12px;
                     line-height: 17px;
                 }
             }
-            &:nth-child(1){
-                >span{
-                   
+            &:nth-child(1) {
+                >span {
                     top: 1px;
                 }
             }
-            
-            &:nth-child(3){
-                >b{
+            &:nth-child(3) {
+                >b {
                     top: 64px;
                 }
             }
-            &:nth-child(4){
-                >a{
-                    i{
-                        font-size:22px !important;
+            &:nth-child(4) {
+                >a {
+                    i {
+                        font-size: 22px !important;
                     }
                 }
             }
-            &:nth-child(5){
-                >span{
+            &:nth-child(5) {
+                >span {
                     top: 241px;
                 }
             }
-            &:nth-child(6){
+            &:nth-child(6) {
                 display: none;
             }
-            &:hover{
+            &:hover {
                 background: #EF4146;
-            } 
+            }
         }
-
     }
 }
