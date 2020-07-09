@@ -62,13 +62,13 @@ require(['shopCart', 'titleHover', 'jquery', 'cookie'], function(shopCart, title
                                     </dd>
                                 </dl>
                             </td>
-                            <td>￥${price.price[0].toFixed(2)}</td>
+                            <td>￥<i class="price">${price.price[0].toFixed(2)}</i></td>
                             <td>
                                 <span class="reduce">-</span>
-                                <input type="text" value="${num}">
+                                <input type="text" value="${num}" class="num">
                                 <span class="add">+</span>
                             </td>
-                            <td>￥<span>${(num * price.price[0]).toFixed(2)}</span></td>
+                            <td>￥<span class="priceSum">${(num * price.price[0]).toFixed(2)}</span></td>
                             <td><span class="del">删除</span></td>
                         </tr>
                             `

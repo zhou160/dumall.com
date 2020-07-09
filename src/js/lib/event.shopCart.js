@@ -51,18 +51,22 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
         //数量添加按钮事件
         $('tbody').on('click', 'td .add', function() {
             var input = $(this).parent().find('input'),
-                num = input.val();
+                num = input.val(),
+                price = parseInt($(this).parent().parent().find('.price').html());
+            console.log(price);
             num++;
             input.val(num);
             cookieNum($(this), num);
             cookieSum();
+            $(this).parent().parent().find('.priceSum').html((num * price).toFixed(2));
             sum();
         });
 
         //数量减少按钮事件
         $('tbody').on('click', 'td .reduce', function() {
             var input = $(this).parent().find('input'),
-                num = input.val();
+                num = input.val(),
+                price = parseInt($(this).parent().parent().find('.price').html());
             num--;
             if (num <= 1) {
                 num = 1;
@@ -71,6 +75,7 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
             input.val(num);
             cookieNum($(this), num);
             cookieSum();
+            $(this).parent().parent().find('.priceSum').html((num * price).toFixed(2));
             sum();
         });
 
@@ -135,9 +140,10 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
                 sumPrice = 0;
             for (var i = 0; i < cookie.length; i++) {
                 if ($('tbody tr').eq(i).find('td').eq(0).find('i').hasClass('active')) {
-                    num++;
+
                     sumNum += +$('tbody tr').eq(i).find('td').eq(3).find('input').val();
                     sumPrice += +$('tbody tr').eq(i).find('td').eq(4).find('span').html();
+                    num++;
                 }
             }
             //将计算结果显示在页面中
@@ -170,7 +176,7 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
 
         function cookieSum() {
             var cookieArr = JSON.parse($.cookie("goods"))
-            console.log(cookieArr)
+                // console.log(cookieArr)
             var sum = 0
             if (cookieArr != null) {
                 for (var i = 0; i < cookieArr.length; i++) {
