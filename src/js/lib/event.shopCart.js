@@ -79,6 +79,22 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
             sum();
         });
 
+        //给购物车数量输入框一个keyup事件
+        $('tbody').on('keyup', '.num', function() {
+            // console.log(1);
+            // console.log($(this).val());
+            if ($(this).val() != '') {
+                var price = parseInt($(this).parent().parent().find('.price').html());
+                console.log('有数');
+                cookieNum($(this), $(this).val());
+                cookieSum();
+                $(this).parent().parent().find('.priceSum').html((parseInt($(this).val()) * price).toFixed(2));
+                sum();
+            } else {
+                console.log('空了');
+            }
+        });
+
         //删除按钮事件
         $('tbody').on('click', '.del', function() {
             // console.log('删除');
