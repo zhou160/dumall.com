@@ -23,4 +23,5 @@ require(['jquery', 'index', 'titleHover'], function($, index, titleHover) {
     index.evaluate(); ////产品列表区域鼠标移入显示评论
     index.indexContent(); //渲染产品区
     titleHover.searchInp(); //用户搜索事件
+    index.titleFixed();
 });

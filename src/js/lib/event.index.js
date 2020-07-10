@@ -142,9 +142,25 @@ define(['jquery', 'titleHover'], function($, titleHover) {
             // console.log(content);
         });
     }
+    //头部列表固定
+    function titleFixed() {
+        // $('.topTitle')
+        console.log('进入');
+        $(window).scroll(function() {
+            console.log('滚动');
+            console.log($(window).scrollTop());
+            if ($(window).scrollTop() >= 100) {
+                console.log('加上');
+                $('.topTitle').css('top', $(window).scrollTop() - 60);
+            } else {
+                $('.topTitle').css('top', 0);
+            }
+        });
+    }
     return {
         banner: banner,
         evaluate: evaluate,
-        indexContent: indexContent
+        indexContent: indexContent,
+        titleFixed: titleFixed
     }
 });

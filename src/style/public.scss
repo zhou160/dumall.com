@@ -82,6 +82,10 @@ header {
         }
     }
     .topTitle {
+        background: white;
+        position: relative;
+        top: 0;
+        z-index: 999;
         .list {
             // background: red;
             height: 64px;

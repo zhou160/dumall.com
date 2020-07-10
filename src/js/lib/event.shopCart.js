@@ -111,7 +111,6 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
             });
             console.log(cookie);
             $.cookie("goods", JSON.stringify(cookie), {
-                    expires: 1,
                     path: '/'
                 })
                 // location.reload();
@@ -184,7 +183,6 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
             });
             // console.log(num);
             $.cookie("goods", JSON.stringify(cookie), {
-                expires: 1,
                 path: '/'
             })
         }

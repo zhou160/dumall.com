@@ -90,7 +90,6 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
             //cookie第一次添加
             var arr = [{ id: id, num: num }]
             $.cookie("goods", JSON.stringify(arr), {
-                expires: 1,
                 path: '/'
             });
         } else {
@@ -113,7 +112,6 @@ define(['titleHover', 'jquery', 'cookie'], function(titleHover, $) {
                 cookieArr.push(obj);
             }
             $.cookie("goods", JSON.stringify(cookieArr), {
-                expires: 1,
                 path: '/'
             })
         }
